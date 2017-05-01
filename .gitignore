@@ -44,8 +44,8 @@ captures/
 .idea/dictionaries
 .idea/libraries
 
-# Keystore files
-*.jks
+# Private Keystore
+keystore.jks
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
@@ -77,6 +77,12 @@ gen-external-apklibs
 
 # Signing files
 .signing/
+
+# Old Backup files
+projectFilesBackup/
+
+# Personal temp files
+icons/
 
 # Local configuration file (sdk path, etc)
 

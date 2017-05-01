@@ -38,6 +38,15 @@ def genVersionCode() {
 
 android {
 
+    signingConfigs {
+        config {
+            storeFile file("gitlab_keystore.jks")
+            storePassword "recorder"
+            keyAlias "Gitlab-PublicKey"
+            keyPassword "recorder"
+        }
+    }
+
     lintOptions{
         checkReleaseBuilds false
         abortOnError false
@@ -66,6 +75,7 @@ android {
             }
         }
     }
+
     buildTypes {
 
         debug {
@@ -86,6 +96,7 @@ android {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
+            signingConfig signingConfigs.config
 
             versionNameSuffix '.NIGHTLY_' + buildDate()
         }
