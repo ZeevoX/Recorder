@@ -6,6 +6,7 @@ ext {
     versionMajor = 0
     versionMinor = 1
     versionPatch = 0
+    versionCode = 20170502
 }
 
 
@@ -32,8 +33,9 @@ def genVersionName() {
 }
 
 def genVersionCode() {
-    return versionMajor * 1000000 + versionMinor * 1000 + versionPatch;
-    // return buildTime()
+    def df = new SimpleDateFormat("yyMMddHH")
+    def formatted = df.format(new Date())
+    return formatted
 }
 
 android {
@@ -47,7 +49,7 @@ android {
         }
     }
 
-    lintOptions{
+    lintOptions {
         checkReleaseBuilds false
         abortOnError false
     }
@@ -64,7 +66,7 @@ android {
         minSdkVersion 23
         targetSdkVersion rootProject.ext.compileSdkVersion
 
-        versionCode genVersionCode()
+        versionCode versionCode
         versionName genVersionName()
 
         applicationVariants.all { variant ->
@@ -86,7 +88,7 @@ android {
             shrinkResources false
             zipAlignEnabled false
 
-            versionNameSuffix '.DEV_' + buildDate()
+            versionNameSuffix '.DEV_' + versionCode
         }
 
         nightly {
@@ -98,7 +100,7 @@ android {
             zipAlignEnabled true
             signingConfig signingConfigs.config
 
-            versionNameSuffix '.NIGHTLY_' + buildDate()
+            versionNameSuffix '.NIGHTLY_' + versionCode
         }
 
         openbeta {
@@ -132,7 +134,8 @@ dependencies {
     compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
     /*               FABToolbar by fafaldo              */
     /*       https://github.com/fafaldo/FABToolbar      */
-    compile 'com.github.fafaldo:fab-toolbar:1.2.0'
+    //compile 'com.github.fafaldo:fab-toolbar:1.2.0'
+
     /*          Material Dialogs by afollestad          */
     /*  https://github.com/afollestad/material-dialogs  */
     compile 'com.afollestad.material-dialogs:core:0.9.4.4'

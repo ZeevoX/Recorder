@@ -5,15 +5,15 @@ import android.content.SharedPreferences;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
 public class RecorderActivity extends AppCompatActivity {
 
@@ -37,19 +37,19 @@ public class RecorderActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_recorder);
 
-        if(getSupportActionBar() != null) {
+        /*if(getSupportActionBar() != null) {
             getSupportActionBar().setElevation(0);
-        }
+        }*/
 
-        final FABToolbarLayout layout = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabtoolbar_fab);
+        //final FABToolbarLayout layout = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //startRecording(1, 44100, 96000, Environment.getExternalStorageDirectory() + File.separator + "Recordings" + File.separator + "Recording-1");
-                dialogtemporarydeletesoon();
-                layout.show();
+                startActivity(new Intent(RecorderActivity.this, RecordingActivity.class));
+                /*layout.show();
 
 
                 final ImageView stop = (ImageView) findViewById(R.id.recording_stop);
@@ -57,19 +57,11 @@ public class RecorderActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         //stopRecording();
-                        layout.hide();
+                        //layout.hide();
                     }
-                });
+                });*/
             }
         });
-    }
-
-    private void dialogtemporarydeletesoon() {
-        new MaterialDialog.Builder(this)
-                .title("Information")
-                .content("It is not possible to record in this application build. Sorry for any inconvenience caused.")
-                .positiveText("OK")
-                .show();
     }
 
     @Override
@@ -98,7 +90,11 @@ public class RecorderActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 startActivity(new Intent(this, getClass()));
                 overridePendingTransition(0, 0);
-                return false;
+                break;
+
+            case R.id.action_about:
+                startActivity(new Intent(RecorderActivity.this, AboutActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

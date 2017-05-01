@@ -1,4 +1,4 @@
 <resources>
-    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="fab_margin">72dp</dimen>
     <dimen name="chronometer2_margin">28dp</dimen>
 </resources>

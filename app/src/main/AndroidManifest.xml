@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zeevox.recorder">
 
+    <!--
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,9 +15,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.MANAGE_ACTIVITY_STACKS" />
-
-    <meta-data android:name="android.max_aspect" android:value="2.1" />
-
+    -->
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
@@ -36,8 +35,31 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
-        <activity android:name=".AboutActivity"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/action_about"
+            android:parentActivityName=".RecorderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zeevox.recorder.RecorderActivity" />
+        </activity>
+        <activity
+            android:name=".RecordingActivity"
+            android:label="@string/title_activity_recording"
+            android:theme="@style/AppThemeRecording">
+            <!--<meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zeevox.recorder.RecorderActivity" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.VOICE_COMMAND" />
+                <category android:name="android.intent.category.VOICE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -4,5 +4,6 @@
     tools:context="com.zeevox.recorder.RecorderActivity">
 
     <item android:id="@+id/action_theme" app:showAsAction="never" android:title="@string/action_theme" android:icon="@drawable/ic_night"/>
+    <item android:id="@+id/action_about" app:showAsAction="never" android:title="@string/action_about" />
 
 </menu>

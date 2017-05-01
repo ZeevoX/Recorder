@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="record"
+        android:enabled="false"
+        android:icon="@drawable/ic_shortcut_record"
+        android:shortcutShortLabel="@string/shortcut_record_title"
+        android:shortcutLongLabel="@string/shortcut_record_desc"
+        android:shortcutDisabledMessage="@string/shortcut_record_disabled_message">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.zeevox.recorder"
+            android:targetClass="com.zeevox.recorder.RecordingActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.recorder" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="settings"
+        android:enabled="false"
+        android:icon="@drawable/ic_shortcut_settings"
+        android:shortcutShortLabel="@string/shortcut_settings_title"
+        android:shortcutLongLabel="@string/shortcut_settings_desc"
+        android:shortcutDisabledMessage="@string/shortcut_settings_disabled_message">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.zeevox.recorder"
+            android:targetClass="com.zeevox.recorder.SettingsActivity" />
+        <categories android:name="android.shortcut.settings" />
+    </shortcut>
+</shortcuts>
