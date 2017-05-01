@@ -1,0 +1,128 @@
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.application'
+
+ext {
+    versionMajor = 0
+    versionMinor = 1
+    versionPatch = 0
+}
+
+
+def buildNumber() {
+    return "${versionMajor}.${versionMinor}.${versionPatch}";
+}
+
+/*def buildTime() {
+    return java.time.Instant.now().getEpochSecond();
+}
+
+def buildTimeSimple() {
+    long dateSimple = buildTime() / 1000
+    return dateSimple
+}*/
+
+static def buildDate() {
+    def df = new SimpleDateFormat("yyyyMMdd")
+    return df.format(new Date())
+}
+
+def genVersionName() {
+    return buildNumber()
+}
+
+def genVersionCode() {
+    return versionMajor * 1000000 + versionMinor * 1000 + versionPatch;
+    // return buildTime()
+}
+
+android {
+
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+
+        project.ext.set("archivesBaseName", "Recorder");
+
+        applicationId "com.zeevox.recorder"
+
+        minSdkVersion 23
+        targetSdkVersion rootProject.ext.compileSdkVersion
+
+        versionCode genVersionCode()
+        versionName genVersionName()
+
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def file = output.outputFile
+                def fileName = file.name.replace("Recorder", versionName)
+                output.outputFile = new File(file.parentFile, fileName)
+            }
+        }
+    }
+    buildTypes {
+
+        debug {
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+
+            versionNameSuffix '.DEV_' + buildDate()
+        }
+
+        nightly {
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+
+            versionNameSuffix '.NIGHTLY_' + buildDate()
+        }
+
+        openbeta {
+
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+
+            versionNameSuffix '.OPENBETA_' + rootProject.ext.betaVersion
+        }
+
+        release {
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+
+            versionNameSuffix '.REL'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
+    /*               FABToolbar by fafaldo              */
+    /*       https://github.com/fafaldo/FABToolbar      */
+    compile 'com.github.fafaldo:fab-toolbar:1.2.0'
+    /*          Material Dialogs by afollestad          */
+    /*  https://github.com/afollestad/material-dialogs  */
+    compile 'com.afollestad.material-dialogs:core:0.9.4.4'
+}
