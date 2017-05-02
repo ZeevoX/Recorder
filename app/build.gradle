@@ -6,7 +6,6 @@ ext {
     versionMajor = 0
     versionMinor = 1
     versionPatch = 0
-    versionCode = 20170502
 }
 
 
@@ -33,9 +32,7 @@ def genVersionName() {
 }
 
 def genVersionCode() {
-    def df = new SimpleDateFormat("yyMMddHH")
-    def formatted = df.format(new Date())
-    return formatted
+    return buildDate()
 }
 
 android {
@@ -66,7 +63,7 @@ android {
         minSdkVersion 23
         targetSdkVersion rootProject.ext.compileSdkVersion
 
-        versionCode versionCode
+        versionCode 20170502
         versionName genVersionName()
 
         applicationVariants.all { variant ->
@@ -88,7 +85,7 @@ android {
             shrinkResources false
             zipAlignEnabled false
 
-            versionNameSuffix '.DEV_' + versionCode
+            versionNameSuffix '.DEV_' + buildDate()
         }
 
         nightly {
@@ -100,7 +97,7 @@ android {
             zipAlignEnabled true
             signingConfig signingConfigs.config
 
-            versionNameSuffix '.NIGHTLY_' + versionCode
+            versionNameSuffix '.NIGHTLY_' + buildDate()
         }
 
         openbeta {
@@ -130,8 +127,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
+    //compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     /*               FABToolbar by fafaldo              */
     /*       https://github.com/fafaldo/FABToolbar      */
     //compile 'com.github.fafaldo:fab-toolbar:1.2.0'
