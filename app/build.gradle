@@ -24,14 +24,15 @@ def buildTimeSimple() {
 
 static def buildDate() {
     def df = new SimpleDateFormat("yyyyMMdd")
-    return df.format(new Date())
+    String formatted = df.format(new Date())
+    return formatted
 }
 
 def genVersionName() {
     return buildNumber()
 }
 
-def genVersionCode() {
+static def genVersionCode() {
     return buildDate()
 }
 
@@ -56,20 +57,22 @@ android {
 
     defaultConfig {
 
-        project.ext.set("archivesBaseName", "Recorder");
+        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
+
+        project.ext.set("archivesBaseName", "recorder");
 
         applicationId "com.zeevox.recorder"
 
         minSdkVersion 23
         targetSdkVersion rootProject.ext.compileSdkVersion
 
-        versionCode 20170502
+        versionCode Integer.parseInt(genVersionCode())
         versionName genVersionName()
 
         applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 def file = output.outputFile
-                def fileName = file.name.replace("Recorder", versionName)
+                def fileName = file.name.replace("recorder", "recorder-" + versionName + "-" + versionCode)
                 output.outputFile = new File(file.parentFile, fileName)
             }
         }

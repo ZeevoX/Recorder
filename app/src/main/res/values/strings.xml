@@ -8,6 +8,8 @@
     <string name="about_img_recorder_icon_alt">Recorder icon</string>
     <string name="about_desc_by_zeevox">by @ZeevoX</string>
 
+    <string name="support_email_address">incoming+ZeevoX/Recorder@gitlab.com</string>
+
     <string name="shortcut_record_title">Record</string>
     <string name="shortcut_record_desc">Start recording all the sounds around you</string>
     <string name="shortcut_record_disabled_message">Shortcuts are not supported on this build</string>

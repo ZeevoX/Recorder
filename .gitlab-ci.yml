@@ -29,4 +29,8 @@ build:
     - ./gradlew assembleNightly
   artifacts:
     paths:
-    - app/build/outputs/
+    - app/build/outputs/apk/
+
+after_script:
+  - stat app/build/outputs/apk/* > datetime.txt
+  - md5sum app/build/outputs/apk/* > md5sum.txt

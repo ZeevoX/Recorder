@@ -2,7 +2,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:shortcutId="record"
-        android:enabled="false"
+        android:enabled="true"
         android:icon="@drawable/ic_shortcut_record"
         android:shortcutShortLabel="@string/shortcut_record_title"
         android:shortcutLongLabel="@string/shortcut_record_desc"
@@ -11,9 +11,6 @@
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.zeevox.recorder"
             android:targetClass="com.zeevox.recorder.RecordingActivity" />
-        <!-- If your shortcut is associated with multiple intents, include them
-             here. The last intent in the list determines what the user sees when
-             they launch this shortcut. -->
         <categories android:name="android.shortcut.recorder" />
     </shortcut>
     <shortcut
