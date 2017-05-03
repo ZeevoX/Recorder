@@ -72,7 +72,7 @@ android {
         applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 def file = output.outputFile
-                def fileName = file.name.replace("recorder", "recorder-" + versionName + "-" + versionCode)
+                def fileName = file.name.replace("recorder", "recorder-" + buildNumber() + "-" + versionCode)
                 output.outputFile = new File(file.parentFile, fileName)
             }
         }

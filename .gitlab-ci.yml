@@ -32,5 +32,6 @@ build:
     - app/build/outputs/apk/
 
 after_script:
-  - stat app/build/outputs/apk/* > datetime.txt
-  - md5sum app/build/outputs/apk/* > md5sum.txt
+  - cd app/build/outputs/apk/
+  - stat * > datetime.txt
+  - md5sum * > md5sum.txt
