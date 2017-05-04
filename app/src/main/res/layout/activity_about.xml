@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/aboutRecorderIcon"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         app:srcCompat="@drawable/recorder"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -35,5 +35,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="6dp"
         android:text="@string/about_desc_by_zeevox" />
+
+    <Button
+        android:id="@+id/buttonFeedback"
+        android:layout_width="wrap_content"
+        android:hapticFeedbackEnabled="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aboutRecorderDesc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="SEND FEEDBACK" />
 
 </RelativeLayout>

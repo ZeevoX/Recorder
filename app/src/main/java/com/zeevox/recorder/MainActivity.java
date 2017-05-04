@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
-public class RecorderActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     protected SharedPreferences preferences;
     private String KEY_THEME = "key_app_theme";
@@ -48,7 +48,7 @@ public class RecorderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //startRecording(1, 44100, 96000, Environment.getExternalStorageDirectory() + File.separator + "Recordings" + File.separator + "Recording-1");
-                startActivity(new Intent(RecorderActivity.this, RecordingActivity.class));
+                startActivity(new Intent(MainActivity.this, RecordingActivity.class));
                 /*layout.show();
 
 
@@ -93,7 +93,7 @@ public class RecorderActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_about:
-                startActivity(new Intent(RecorderActivity.this, AboutActivity.class));
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
