@@ -2,11 +2,14 @@ package com.zeevox.recorder;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -20,29 +23,32 @@ public class AboutActivity extends AppCompatActivity {
         boolean mDarkTheme = this.preferences.getBoolean("key_app_theme", false);
         /*temp var*/int i;
         if (mDarkTheme) {/*Dark Theme*/i = R.style.AppThemeBlack;} else {/*LightTheme*/i = R.style.AppTheme;}
-
         //set theme before setcontentview
         setTheme(i);
 
         setContentView(R.layout.activity_about);
 
-        //20170504 FEEDBACK BUTTON
+        //FEEDBACK BUTTON
         final Button feedbackButton = (Button) findViewById(R.id.buttonFeedback);
         feedbackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 /* Create the Intent */
-                final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-
-                /* Fill it with Data */
-                emailIntent.setType("text/plain");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"incoming+ZeevoX/Recorder@gitlab.com"});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Recorder Issue: ");
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Issue:\nDevice:\nHow to reproduce this issue:\nYour name:");
-
-                /* Send it off to the Activity-Chooser */
-                getApplicationContext().startActivity(Intent.createChooser(emailIntent, "Send feedback via email..."));
+                //set support email
+                Uri uri = Uri.parse("mailto:incoming+ZeevoX/Recorder@gitlab.com");
+                //set up intent
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+                //fill intent with data
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Recorder Issue: ");
+                emailIntent.putExtra(Intent.EXTRA_TEXT,
+                        "Issue:\n\nHow to reproduce this issue:\n\nYour name:" +
+                        "\n\nPlease do not remove or change the information below; the developers need it. Thank you.\n\nApp Version Name: "+BuildConfig.VERSION_NAME+"\nBuild Timestamp (Unix): "+BuildConfig.TIMESTAMP+"\nBuild type: "+BuildConfig.BUILD_TYPE+"\nApp Version Code: "+BuildConfig.VERSION_CODE+"" +
+                        "\n\nDevice model: "+ Build.MODEL+"\nDevice manufacturer: " + Build.MANUFACTURER + "\nDevice codename: " + Build.PRODUCT+"\nAndroid version: "+ Build.VERSION.RELEASE +"\nSDK number: "+Build.VERSION.SDK_INT);
+                //launch default email client
+                startActivity(emailIntent);
             }
         });
+
+        final TextView timestampTextView = (TextView) findViewById(R.id.textTimeStamp);
+        timestampTextView.setText(String.format("%s%s", getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME));
     }
 }
