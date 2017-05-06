@@ -1,6 +1,6 @@
 <a name="20170506"></a>
 ### 2017-05-06
-* Bug fixes
+* Fixed feedback button message
 
 <a name="20170505"></a>
 #### 2017-05-05
