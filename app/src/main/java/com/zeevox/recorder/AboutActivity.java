@@ -38,11 +38,11 @@ public class AboutActivity extends AppCompatActivity {
                 //set up intent
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
                 //fill intent with data
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Recorder Issue: ");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
                 emailIntent.putExtra(Intent.EXTRA_TEXT,
-                        "Issue:\n\nHow to reproduce this issue:\n\nYour name:" +
-                        "\n\nPlease do not remove or change the information below; the developers need it. Thank you.\n\nApp Version Name: "+BuildConfig.VERSION_NAME+"\nBuild Timestamp (Unix): "+BuildConfig.TIMESTAMP+"\nBuild type: "+BuildConfig.BUILD_TYPE+"\nApp Version Code: "+BuildConfig.VERSION_CODE+"" +
-                        "\n\nDevice model: "+ Build.MODEL+"\nDevice manufacturer: " + Build.MANUFACTURER + "\nDevice codename: " + Build.PRODUCT+"\nAndroid version: "+ Build.VERSION.RELEASE +"\nSDK number: "+Build.VERSION.SDK_INT);
+                        "Issue:\n\nSteps on how to reproduce this issue:\n\nYour name:\nYour email address:" +
+                        "\n\n\n\n**Do NOT remove the information below!**\n\nApp Version Name: "+BuildConfig.VERSION_NAME+"\nBuild Timestamp (Unix): "+BuildConfig.TIMESTAMP+"\nBuild type: "+BuildConfig.BUILD_TYPE+"\nApp Version Code: "+BuildConfig.VERSION_CODE+"" +
+                        "\n\nDevice model: "+ Build.MODEL + "\nDevice manufacturer: " + Build.MANUFACTURER + "\nDevice codename: " + Build.PRODUCT + "\nDevice Build Fingerprint: " + Build.FINGERPRINT + "\nAndroid version: " + Build.VERSION.RELEASE +"\nSDK number: " + Build.VERSION.SDK_INT);
                 //launch default email client
                 startActivity(emailIntent);
             }
