@@ -1,11 +1,14 @@
+#### 2017-05-06
+* Bug fixes
+
 #### 2017-05-05
-*Fixed feedback button action
-*Added app version info on the about screen
-*Made the Recorder icon on the about screen smaller to prevent pixelation
+* Fixed feedback button action
+* Added app version info on the about screen
+* Made the Recorder icon on the about screen smaller to prevent pixelation
 
 #### 2017-05-04
-*Added feedback button to about screen
-*Code cleanup
+* Added feedback button to about screen
+* Code cleanup
 
 #### 2017-05-03
 * Brightened colors
@@ -22,4 +25,4 @@
 * Squashed some bugs
 
 #### 2017-05-01
-*First Gitlab release
+* First Gitlab release
