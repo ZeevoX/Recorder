@@ -1,6 +1,6 @@
 <a name="20170507"></a>
 ### 2017-05-07
-* No changes made
+* Remove unnecessary libraries until further notice
 
 <a name="20170506"></a>
 ### 2017-05-06
