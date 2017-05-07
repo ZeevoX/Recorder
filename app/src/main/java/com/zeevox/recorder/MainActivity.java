@@ -2,18 +2,13 @@ package com.zeevox.recorder;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -100,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void startRecording(int audioChannels, int samplingRate, int encodingBitRate, String recordingFilePath) {
+    /*public void startRecording(int audioChannels, int samplingRate, int encodingBitRate, String recordingFilePath) {
 
         //init
         MediaRecorder recorder = new MediaRecorder();
@@ -114,5 +109,5 @@ public class MainActivity extends AppCompatActivity {
         recorder.setAudioSamplingRate(samplingRate);
         recorder.setAudioEncodingBitRate(encodingBitRate);
         recorder.setOutputFile(recordingFilePath);
-    }
+    }*/
 }
