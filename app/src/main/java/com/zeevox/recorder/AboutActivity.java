@@ -51,5 +51,21 @@ public class AboutActivity extends AppCompatActivity {
 
         final TextView timestampTextView = (TextView) findViewById(R.id.textTimeStamp);
         timestampTextView.setText(String.format("%s%s", getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME));
+
+        /*public void startRecording(int audioChannels, int samplingRate, int encodingBitRate, String recordingFilePath) {
+
+        //init
+        MediaRecorder recorder = new MediaRecorder();
+
+        //Audio source
+        recorder.setAudioChannels(audioChannels);
+        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        recorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
+        recorder.setAudioSamplingRate(samplingRate);
+        recorder.setAudioEncodingBitRate(encodingBitRate);
+        recorder.setOutputFile(recordingFilePath);
+    }*/
     }
 }

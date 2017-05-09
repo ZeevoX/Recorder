@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setElevation(0);
         }*/
 
-        //final FABToolbarLayout layout = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,17 +43,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //startRecording(1, 44100, 96000, Environment.getExternalStorageDirectory() + File.separator + "Recordings" + File.separator + "Recording-1");
                 startActivity(new Intent(MainActivity.this, RecordingActivity.class));
-                /*layout.show();
-
-
-                final ImageView stop = (ImageView) findViewById(R.id.recording_stop);
-                stop.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //stopRecording();
-                        //layout.hide();
-                    }
-                });*/
             }
         });
     }
@@ -93,21 +81,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-    /*public void startRecording(int audioChannels, int samplingRate, int encodingBitRate, String recordingFilePath) {
-
-        //init
-        MediaRecorder recorder = new MediaRecorder();
-
-        //Audio source
-        recorder.setAudioChannels(audioChannels);
-        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        recorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
-        recorder.setAudioSamplingRate(samplingRate);
-        recorder.setAudioEncodingBitRate(encodingBitRate);
-        recorder.setOutputFile(recordingFilePath);
-    }*/
 }

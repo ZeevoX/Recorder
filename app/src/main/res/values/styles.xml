@@ -23,7 +23,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="isLightTheme">false</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryBlackDark</item>
         <item name="android:colorBackground">@color/colorPrimaryBlack</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
