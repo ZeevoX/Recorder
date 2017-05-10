@@ -1,6 +1,11 @@
 <a name="20170509"></a>
+### 2017-05-10
+* No code changes
+
+<a name="20170509"></a>
 ### 2017-05-09
 * Code cleanup
+* Fixed dark theme
 
 <a name="20170508"></a>
 ### 2017-05-08
