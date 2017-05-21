@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/action_settings">
+
+    <PreferenceCategory android:title="@string/settings_title">
+        <!--<SwitchPreference
+        android:title="@string/settings_switch_high_quality_title"
+        android:summary="@string/settings_switch_high_quality_summary"
+        android:key="key_preference_switch_high_quality" />-->
+
+
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/recording_formats_titles"
+            android:entryValues="@array/recording_formats_values"
+            android:key="recording_formats"
+            android:title="Recording format"
+            android:summary="Set your preferred recording format"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_notifications">
+        <SwitchPreference
+        android:title="@string/settings_switch_persistent_notification_title"
+        android:summary="@string/settings_switch_persistent_notification_summary"
+        android:key="key_preference_switch_persistent_notification" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_miscellaneous">
+        <Preference
+            android:key="key_app_copyright"
+            android:title="@string/app_copyright_title"
+            android:summary="@string/app_copyright" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

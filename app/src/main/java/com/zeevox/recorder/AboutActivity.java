@@ -1,33 +1,48 @@
 package com.zeevox.recorder;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
-    protected SharedPreferences preferences;
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean mDarkTheme = this.preferences.getBoolean("key_app_theme", false);
-        /*temp var*/int i;
-        if (mDarkTheme) {/*Dark Theme*/i = R.style.AppThemeBlack;} else {/*LightTheme*/i = R.style.AppTheme;}
-        //set theme before setcontentview
-        setTheme(i);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        setTheme(preferences.getBoolean("key_app_theme", false) ? R.style.AppThemeBlack : R.style.AppTheme);
 
         setContentView(R.layout.activity_about);
 
+        final ImageView recorderIcon = (ImageView) findViewById(R.id.aboutRecorderIcon);
+        recorderIcon.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(30);
+                if (i == 7) {
+                    startActivity(new Intent(AboutActivity.this, FeedbackActivity.class));
+                    i = 0;
+                } else {
+                    i = i+1;
+                }
+                return false;
+            }
+        });
         //FEEDBACK BUTTON
         final Button feedbackButton = (Button) findViewById(R.id.buttonFeedback);
         feedbackButton.setOnClickListener(new View.OnClickListener() {
@@ -39,33 +54,31 @@ public class AboutActivity extends AppCompatActivity {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
                 //fill intent with data
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
-                emailIntent.putExtra(Intent.EXTRA_TEXT,
+
+                //init feedback message
+                String feedbackMessage = getString(R.string.feedback_prefill_content);
+
+                //input data
+                feedbackMessage = feedbackMessage.replace("version_name", BuildConfig.VERSION_NAME);
+                feedbackMessage = feedbackMessage.replace("build_timestamp", Long.toString(BuildConfig.TIMESTAMP));
+                feedbackMessage = feedbackMessage.replace("build_type", BuildConfig.BUILD_TYPE);
+                //Set email intent
+                emailIntent.putExtra(Intent.EXTRA_TEXT, feedbackMessage);
+                /*emailIntent.putExtra(Intent.EXTRA_TEXT,
                         "Issue:\n\nSteps on how to reproduce this issue:\n\nYour name:\nYour email address:" +
                         "\n\n\n\n**Do NOT remove the information below!**\n\nApp Version Name: "+BuildConfig.VERSION_NAME+"\nBuild Timestamp (Unix): "+BuildConfig.TIMESTAMP+"\nBuild type: "+BuildConfig.BUILD_TYPE+"\nApp Version Code: "+BuildConfig.VERSION_CODE+"" +
-                        "\n\nDevice model: "+ Build.MODEL + "\nDevice manufacturer: " + Build.MANUFACTURER + "\nDevice codename: " + Build.PRODUCT + "\nDevice Build Fingerprint: " + Build.FINGERPRINT + "\nAndroid version: " + Build.VERSION.RELEASE +"\nSDK number: " + Build.VERSION.SDK_INT);
-                //launch default email client
-                //TODO: FIX FEEDBACK CRASH IF NO EMAIL CLIENT IS PRESENT
-                startActivity(emailIntent);
+                        "\n\nDevice model: "+ Build.MODEL + "\nDevice manufacturer: " + Build.MANUFACTURER + "\nDevice codename: " + Build.PRODUCT + "\nDevice Build Fingerprint: " + Build.FINGERPRINT + "\nAndroid version: " + Build.VERSION.RELEASE +"\nSDK number: " + Build.VERSION.SDK_INT);*/
+                try {
+                    //launch default email client
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException activityNotFoundException) {
+                    //DIALOG TO SAY NO EMAIL CLIENT FOUND
+                }
             }
         });
 
-        final TextView timestampTextView = (TextView) findViewById(R.id.textTimeStamp);
-        timestampTextView.setText(String.format("%s%s", getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME));
-
-        /*public void startRecording(int audioChannels, int samplingRate, int encodingBitRate, String recordingFilePath) {
-
-        //init
-        MediaRecorder recorder = new MediaRecorder();
-
-        //Audio source
-        recorder.setAudioChannels(audioChannels);
-        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        recorder.setAudioEncoder(MediaRecorder.getAudioSourceMax());
-        recorder.setAudioSamplingRate(samplingRate);
-        recorder.setAudioEncodingBitRate(encodingBitRate);
-        recorder.setOutputFile(recordingFilePath);
-    }*/
+        ((TextView) findViewById(R.id.textTimeStamp)).setText(String.format("%s%s", new Object[]{getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME}));
+        /*final TextView timestampTextView = (TextView) findViewById(R.id.textTimeStamp);
+        timestampTextView.setText(String.format("%s%s", getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME));*/
     }
 }

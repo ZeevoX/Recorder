@@ -1,6 +1,48 @@
 <resources>
     <string name="app_name">Recorder</string>
+    <string name="app_copyright_title">Open-source Licenses</string>
+    <string name="app_copyright">Copyright © 2016 – 2017 Timothy Langer (ZeevoX). Tap to learn more…</string>
+    <string name="app_release_type_stable">Stable</string>
+    <string name="app_release_type_debug">Debug</string>
+    <string name="app_release_type_beta">Beta</string>
+    <string name="app_release_type_dogfood">Dogfood (Internal)</string>
+    <string name="dogfood_info_title">Shh… confidential</string>
+    <string name="dogfood_info_message">This app can only be shared with approved testers.</string>
+    <string name="beta_enroll_title">Try new features…</string>
+    <string name="settings_title">Recording Settings</string>
+    <string name="settings_switch_high_quality_title">Enable high quality recording</string>
+    <string name="settings_switch_high_quality_summary">If enabled, recordings will take up more space on your device, but will sound clearer on playback.</string>
+    <string name="settings_sampling_rate_title">Recording sampling rate</string>
+    <string name="settings_sampling_rate_values">
+        <item>8000</item>
+        <item>16000</item>
+        <item>41000</item>
+        <item>48000</item>
+    </string>
+    <string name="settings_category_notifications">Notifications</string>
+    <string name="settings_switch_persistent_notification_title">Show a notification when recording</string>
+    <string name="settings_switch_persistent_notification_summary">When recording, display a notification with \"pause\" and \"stop\" actions for easy access.</string>
+    <string name="settings_category_miscellaneous">Miscellaneous</string>
+    <string name="info_error">Error occurred…</string>
+    <string name="dialog_join_beta_title">Join the beta</string>
+    <string name="dialog_join_beta_content">Help out the developers behind Sound Recorder by being the first to test new features and identify issues. These releases may contain bugs, but it allows for development of the application to continue at a faster pace.</string>
+
     <string name="action_settings">Settings</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+    <string name="action_save">Save</string>
+    <string name="action_no_thanks">No thanks</string>
+    <string name="action_dont_ask_again">Don\'t ask me again</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_try_again">Try again</string>
+    <string name="action_yeah_sure">Yeah, sure!</string>
+    <string name="action_close">Close</string>
+    <string name="action_close_and_save">Close and save</string>
+    <string name="action_got_it">Got it</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_get_started">Get started</string>
+
     <string name="action_theme">Switch theme</string>
     <string name="action_theme_light">Light mode</string>
     <string name="action_theme_dark">Dark mode</string>
@@ -10,6 +52,11 @@
     <string name="action_about">About</string>
     <string name="about_version_placeholder">v</string>
 
+    <string name="dialog_rename_file_title">Name your recording</string>
+    <string name="dialog_rename_file_content">Give a name for your recording. You can always change this later.</string>
+    <string name="dialog_permissions_record_content">Recorder needs permission to use your microphone and permission to save files on your device to continue. Please allow these permissions.</string>
+    <string name="dialog_permissions_storage_content">Recorder needs permission to save recordings to your device to continue. Please allow this permission.</string>
+
     <string name="shortcut_record_title">Record</string>
     <string name="shortcut_record_desc">Start recording all the sounds around you</string>
     <string name="shortcut_record_disabled_message">Shortcuts are not supported on this build</string>
@@ -17,4 +64,38 @@
     <string name="shortcut_settings_desc">Configure recording settings</string>
     <string name="shortcut_settings_disabled_message">Shortcuts are not supported on this build</string>
     <string name="title_activity_recording">Recording…</string>
+    <string name="about_send_feedback">Send Feedback</string>
+    <string name="feedback_name_hint">Your name…</string>
+    <string name="feedback_email_hint">Your email address…</string>
+    <string name="feedback_prefill_input_hint">I am having an issue with&#8230;\n\nThis issue happens when&#8230;</string>
+    <string name="feedback_prefill_content">
+        I am having an issue with&#8230;\n\n\n\n
+
+        # How to reproduce this issue\n\n
+        This issue happens when&#8230;\n\n\n\n
+
+        # User information\n\n\n
+
+| Field | Answer |\n
+| -------- | ------------ |\n
+| Name | REPLACE_THIS_TEXT_WITH_YOUR_NAME |\n
+| Email | REPLACE_THIS_TEXT_WITH_YOUR_EMAIL_ADDRESS |\n
+\n\n
+\n\n
+# Developer information\n\n
+**Do NOT remove the information below!**\n\n\n
+\n
+| Info | Value |\n
+| -------- | ------ |\n
+| Version name | version_name |\n
+| Build Timestamp (Unix) | build_timestamp |\n
+| Build type | build_type |\n
+| Version code | version_code |\n
+| Device model | device_model |\n
+| Device manufacturer | device_manufacturer |\n
+| Device codename | device_codename |\n
+| Device Build Fingerprint | device_build_fingerprint |\n
+| Android version | android_version |\n
+| SDK version | sdk_version |\n</string>
+    <string name="action_pause_resume">Pause/Resume</string>
 </resources>

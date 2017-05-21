@@ -19,16 +19,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="88dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
 
         <ImageView
             android:id="@+id/cancel"
-            android:contentDescription="Cancel"
+            android:contentDescription="@string/action_cancel"
             android:src="@drawable/ic_cancel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -41,7 +42,7 @@
 
         <ImageView
             android:id="@+id/pause"
-            android:contentDescription="Pause/Resume"
+            android:contentDescription="@string/action_pause_resume"
             android:src="@drawable/ic_pause"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -54,7 +55,7 @@
 
         <ImageView
             android:id="@+id/stop"
-            android:contentDescription="Stop"
+            android:contentDescription="@string/stop_recording"
             android:src="@drawable/ic_stop"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -65,5 +66,42 @@
             android:focusable="true"
             android:background="?android:attr/selectableItemBackground"/>
 
-    </LinearLayout>
+    </LinearLayout>-->
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignBottom="@+id/recording_pause_resume"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="48dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/stop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:contentDescription="@string/stop_recording"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_stop" />
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/recording_pause_resume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="2dp"
+        app:fabSize="normal"
+        app:rippleColor="@color/material_grey_500"
+        app:srcCompat="@drawable/pause" />
 </RelativeLayout>

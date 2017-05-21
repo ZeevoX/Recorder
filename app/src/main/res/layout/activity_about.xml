@@ -38,13 +38,14 @@
 
     <Button
         android:id="@+id/buttonFeedback"
+        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="wrap_content"
-        android:hapticFeedbackEnabled="true"
         android:layout_height="wrap_content"
         android:layout_below="@+id/aboutRecorderDesc"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:text="SEND FEEDBACK" />
+        android:hapticFeedbackEnabled="true"
+        android:text="@string/about_send_feedback" />
 
     <TextView
         android:id="@+id/textTimeStamp"
@@ -53,7 +54,7 @@
         android:layout_below="@+id/buttonFeedback"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Error occurred."
+        android:text="@string/info_error"
         android:textAppearance="@android:style/TextAppearance.Material.Small" />
 
 </RelativeLayout>

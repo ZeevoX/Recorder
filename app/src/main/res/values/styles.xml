@@ -6,10 +6,18 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="isLightTheme">true</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:navigationBarColor">@color/colorPrimaryNavbar</item>
-        <item name="android:windowContentTransitions">true</item>
-        <!--<item name="android:colorBackground">@color/colorPrimary</item>-->
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="android:colorControlNormal">@color/colorAccent</item>
+    </style>
+
+    <style name="ThemeOverlay.AppTheme.ActionBar.Accent" parent="@android:style/ThemeOverlay.Material.ActionBar">
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+    </style>
+
+    <style name="ThemeOverlay.AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <!-- Parent theme sets colorControlNormal to textColorPrimary. -->
+        <item name="android:textColorPrimary">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -33,12 +41,8 @@
         <item name="colorPrimary">@color/recording_background</item>
         <item name="colorPrimaryDark">@color/recording_background_dark</item>
         <item name="colorAccent">@color/recording_background</item>
-        <item name="isLightTheme">false</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:navigationBarColor">@color/recording_background_dark</item>
-        <item name="android:statusBarColor">@color/recording_background_dark</item>
+        <item name="android:navigationBarColor">@color/recording_background</item>
+        <item name="android:statusBarColor">@color/recording_background</item>
         <item name="android:colorBackground">@color/recording_background</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
