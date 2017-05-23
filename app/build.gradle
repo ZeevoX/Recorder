@@ -39,13 +39,13 @@ def getVersionName = { ->
     try {
         def stdout = new ByteArrayOutputStream()
         exec {
-            commandLine 'git', 'describe', '--dirty'
+            commandLine 'git', 'describe', '--tags', '--dirty'
             standardOutput = stdout
         }
         return stdout.toString().trim()
     }
     catch (ignored) {
-        return null;
+        return null
     }
 }
 
@@ -60,7 +60,7 @@ def getVersionCode = { ->
         return Integer.parseInt(stdout.toString().trim()) * 100
     }
     catch (ignored) {
-        return -1;
+        return -1
     }
 }
 
@@ -88,7 +88,7 @@ android {
     defaultConfig {
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
-        project.ext.set("archivesBaseName", "Recorder_")
+        project.ext.set("archivesBaseName", "recorder")
         applicationId "com.zeevox.recorder"
 
         minSdkVersion 23
@@ -101,7 +101,7 @@ android {
         /*applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 def file = output.outputFile
-                def fileName = file.name.replace("_", "_" + buildNumber())
+                def fileName = file.name.replace("recorder", "recorder_" + buildNumber())
                 output.outputFile = new File(file.parentFile, fileName)
             }
         }*/
@@ -132,7 +132,7 @@ android {
             versionNameSuffix '.weekly_' + buildDate()
         }
 
-        openbeta {
+        beta {
 
             debuggable false
             jniDebuggable false
@@ -141,7 +141,7 @@ android {
             shrinkResources true
             zipAlignEnabled true
 
-            versionNameSuffix '.beta'
+            versionNameSuffix '.beta_' + rootProject.ext.betaVersion
         }
 
         release {
