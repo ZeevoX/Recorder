@@ -2,31 +2,22 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.application'
 
-/*ext {
-    versionMajor = 1
-    versionMinor = 0
-    versionPatch = 0
-}
-
-static def buildNumber() {
-    return "${versionMajor}.${versionMinor}.${versionPatch}"
-}*/
-
-static def buildDate() {
+def buildDate() {
     def df = new SimpleDateFormat("yyyyMMdd")
     String formatted = df.format(new Date())
     return formatted
 }
 
-static def gitVersionCode() {
-    def process = "git rev-list master --first-parent --count".execute()
+def gitVersionCode() {
+    "git fetch".execute()
+    def process = "git rev-list --all --count".execute()
     return process.text.toInteger()
 }
 
-static def gitVersionName() {
-    def process = "git describe --tags --dirty=debug".execute()
-    //return process.text
-    return process.text.replaceAll('-', '\\.')
+def gitVersionName() {
+    "git fetch".execute()
+    def process = "git describe --tags --dirty=.debug".execute()
+    return process.text.replaceAll('-', '\\.').trim()
 }
 
 android {
@@ -51,24 +42,13 @@ android {
     defaultConfig {
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
-        //project.ext.set("archivesBaseName", "recorder2")
         applicationId "com.zeevox.recorder2"
 
         minSdkVersion 23
         targetSdkVersion 25
 
-        //versionCode Integer.parseInt(buildDate())
-        //versionName buildNumber()
         versionCode gitVersionCode()
         versionName gitVersionName()
-
-        /*applicationVariants.all { variant ->
-            variant.outputs.each { output ->
-                def file = output.outputFile
-                def fileName = file.name.replace("recorder2", "recorder2_" + buildNumber())
-                output.outputFile = new File(file.parentFile, fileName)
-            }
-        }*/
     }
 
     buildTypes {
@@ -80,8 +60,6 @@ android {
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
-
-            //versionNameSuffix '.debug_' + buildDate()
         }
 
         weekly {
