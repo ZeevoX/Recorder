@@ -2,66 +2,31 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.application'
 
-ext {
+/*ext {
     versionMajor = 1
     versionMinor = 0
     versionPatch = 0
 }
 
-/*def buildTime() {
-    return java.time.Instant.now().getEpochSecond();
-}
-
-def buildTimeSimple() {
-    long dateSimple = buildTime() / 1000
-    return dateSimple
+static def buildNumber() {
+    return "${versionMajor}.${versionMinor}.${versionPatch}"
 }*/
 
-def buildNumber() {
-    return "${versionMajor}.${versionMinor}.${versionPatch}"
-}
-
-def buildDate() {
+static def buildDate() {
     def df = new SimpleDateFormat("yyyyMMdd")
     String formatted = df.format(new Date())
     return formatted
 }
 
-def genVersionName() {
-    return buildNumber()
+static def gitVersionCode() {
+    def process = "git rev-list master --first-parent --count".execute()
+    return process.text.toInteger()
 }
 
-def genVersionCode() {
-    return buildDate()
-}
-
-def getVersionName = { ->
-    try {
-        def stdout = new ByteArrayOutputStream()
-        exec {
-            commandLine 'git', 'describe', '--tags', '--dirty'
-            standardOutput = stdout
-        }
-        return stdout.toString().trim()
-    }
-    catch (ignored) {
-        return null
-    }
-}
-
-
-def getVersionCode = { ->
-    try {
-        def stdout = new ByteArrayOutputStream()
-        exec {
-            commandLine 'git', 'rev-list', '--first-parent', '--count', 'origin/master'
-            standardOutput = stdout
-        }
-        return Integer.parseInt(stdout.toString().trim()) * 100
-    }
-    catch (ignored) {
-        return -1
-    }
+static def gitVersionName() {
+    def process = "git describe --tags --dirty=debug".execute()
+    //return process.text
+    return process.text.replaceAll('-', '\\.')
 }
 
 android {
@@ -82,26 +47,25 @@ android {
 
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
-    //compileSdkVersion 'android-O'
-    //buildToolsVersion '26.0.0-rc2'
 
     defaultConfig {
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
-        project.ext.set("archivesBaseName", "recorder")
-        applicationId "com.zeevox.recorder"
+        //project.ext.set("archivesBaseName", "recorder2")
+        applicationId "com.zeevox.recorder2"
 
         minSdkVersion 23
         targetSdkVersion 25
-        //targetSdkVersion 'O'
 
-        versionCode Integer.parseInt(genVersionCode())
-        versionName genVersionName()
+        //versionCode Integer.parseInt(buildDate())
+        //versionName buildNumber()
+        versionCode gitVersionCode()
+        versionName gitVersionName()
 
         /*applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 def file = output.outputFile
-                def fileName = file.name.replace("recorder", "recorder_" + buildNumber())
+                def fileName = file.name.replace("recorder2", "recorder2_" + buildNumber())
                 output.outputFile = new File(file.parentFile, fileName)
             }
         }*/
@@ -117,7 +81,7 @@ android {
             shrinkResources false
             zipAlignEnabled false
 
-            versionNameSuffix '.debug_' + buildDate()
+            //versionNameSuffix '.debug_' + buildDate()
         }
 
         weekly {
@@ -141,7 +105,7 @@ android {
             shrinkResources true
             zipAlignEnabled true
 
-            versionNameSuffix '.beta_' + rootProject.ext.betaVersion
+            versionNameSuffix '.beta'
         }
 
         release {
@@ -158,9 +122,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.1'
-    //compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support:design:25.3.1'
-    //compile 'com.android.support:design:26.0.0-alpha1'
 
     /*               FABToolbar by fafaldo              */
     /*       https://github.com/fafaldo/FABToolbar      */

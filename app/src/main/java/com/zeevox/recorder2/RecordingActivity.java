@@ -1,4 +1,4 @@
-package com.zeevox.recorder;
+package com.zeevox.recorder2;
 
 import android.Manifest;
 import android.content.Intent;
@@ -16,8 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.zeevox.recorder.encoders.EncoderInfo;
-import com.zeevox.recorder.encoders.RawSamples;
+import com.zeevox.recorder2.encoders.EncoderInfo;
+import com.zeevox.recorder2.encoders.RawSamples;
 
 import java.io.File;
 import java.io.IOException;

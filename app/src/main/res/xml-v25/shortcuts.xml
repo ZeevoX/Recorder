@@ -9,8 +9,8 @@
         android:shortcutDisabledMessage="@string/shortcut_record_disabled_message">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="com.zeevox.recorder"
-            android:targetClass="com.zeevox.recorder.RecordingActivity" />
+            android:targetPackage="com.zeevox.recorder2"
+            android:targetClass="com.zeevox.recorder2.RecordingActivity" />
         <categories android:name="android.shortcut.recorder" />
     </shortcut>
     <shortcut
@@ -22,8 +22,8 @@
         android:shortcutDisabledMessage="@string/shortcut_settings_disabled_message">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="com.zeevox.recorder"
-            android:targetClass="com.zeevox.recorder.SettingsActivity" />
+            android:targetPackage="com.zeevox.recorder2"
+            android:targetClass="com.zeevox.recorder2.SettingsActivity" />
         <categories android:name="android.shortcut.settings" />
     </shortcut>
 </shortcuts>

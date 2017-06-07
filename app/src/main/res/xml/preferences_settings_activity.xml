@@ -14,7 +14,15 @@
             android:entryValues="@array/recording_formats_values"
             android:key="recording_formats"
             android:title="Recording format"
-            android:summary="Set your preferred recording format"/>
+            android:summary="Set your preferred recording format" />
+
+        <ListPreference
+            android:defaultValue="44100"
+            android:entries="@array/recording_sampling_rate_titles"
+            android:entryValues="@array/recording_sampling_rate_values"
+            android:key="recording_sampling_rate"
+            android:title="@string/settings_sampling_rate_title"
+            android:summary="@string/settings_sampling_rate_title" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_notifications">
@@ -29,6 +37,11 @@
             android:key="key_app_copyright"
             android:title="@string/app_copyright_title"
             android:summary="@string/app_copyright" />
+        <SwitchPreference
+            android:key="dev_options"
+            android:defaultValue="false"
+            android:title="Enable developer options"
+            android:summary="This does not add any extra functionality yet"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

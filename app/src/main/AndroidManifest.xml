@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zeevox.recorder">
+    package="com.zeevox.recorder2">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -47,7 +47,7 @@
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zeevox.recorder.MainActivity" />
+                android:value="com.zeevox.recorder2.MainActivity" />
         </activity>
         <activity
             android:name=".RecordingActivity"
@@ -57,7 +57,7 @@
             <!--
                 <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zeevox.recorder.MainActivity" />
+                android:value="com.zeevox.recorder2.MainActivity" />
             -->
             <intent-filter>
                 <action android:name="android.intent.action.VOICE_COMMAND" />

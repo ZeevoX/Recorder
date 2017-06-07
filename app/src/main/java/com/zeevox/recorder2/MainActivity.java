@@ -1,4 +1,4 @@
-package com.zeevox.recorder;
+package com.zeevox.recorder2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

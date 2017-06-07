@@ -1,4 +1,4 @@
-package com.zeevox.recorder.encoders;
+package com.zeevox.recorder2.encoders;
 
 import android.media.AudioFormat;
 
