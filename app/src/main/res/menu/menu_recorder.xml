@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.zeevox.recorder2.MainActivity">
 
-    <item android:id="@+id/action_theme" app:showAsAction="never" android:title="@string/action_theme" android:icon="@drawable/ic_night"/>
+    <item android:id="@+id/action_theme" app:showAsAction="never" android:title="@string/action_theme"/>
+    <item android:id="@+id/action_settings" app:showAsAction="never" android:title="@string/action_settings" />
+    <item android:id="@+id/action_feedback" app:showAsAction="never" android:title="@string/action_send_feedback"/>
     <item android:id="@+id/action_about" app:showAsAction="never" android:title="@string/action_about" />
 
 </menu>

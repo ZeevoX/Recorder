@@ -64,10 +64,12 @@
     <string name="shortcut_settings_desc">Configure recording settings</string>
     <string name="shortcut_settings_disabled_message">Shortcuts are not supported on this build</string>
     <string name="title_activity_recording">Recording…</string>
-    <string name="about_send_feedback">Send Feedback</string>
+    <string name="action_send_feedback">Send Feedback</string>
     <string name="feedback_name_hint">Your name…</string>
     <string name="feedback_email_hint">Your email address…</string>
-    <string name="feedback_prefill_input_hint">I am having an issue with&#8230;\n\nThis issue happens when&#8230;</string>
+    <string name="feedback_prefill_input_hint_issue">I am having an issue with&#8230;</string>
+    <string name="feedback_prefill_input_hint_reproduce">How to reproduce this issue&#8230;</string>
+    <string name="feedback_prefill_input_hint_other">Anything else you would like to say&#8230;</string>
     <string name="feedback_prefill_content">
         I am having an issue with&#8230;\n\n\n\n
 

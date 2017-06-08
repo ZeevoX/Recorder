@@ -2,6 +2,7 @@ package com.zeevox.recorder2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,11 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_recorder);
 
-        //ANDROID O
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= 26) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
-        }*/
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark, getTheme()));
+        }
 
         // if(getSupportActionBar() != null) {getSupportActionBar().setElevation(0); }
 

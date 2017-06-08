@@ -1,49 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zeevox.recorder2.FeedbackActivity">
 
-    <AutoCompleteTextView
-        android:id="@+id/feedback_name_input"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="@string/feedback_name_hint" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/feedback_email_input"
-        android:hint="@string/feedback_email_hint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_below="@+id/feedback_name_input"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
+        <AutoCompleteTextView
+            android:id="@+id/feedback_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="@string/feedback_name_hint" />
 
-    <EditText
-        android:id="@+id/feedback_issue_input"
-        android:text="@string/feedback_prefill_input_hint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_below="@+id/feedback_email_input"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+        <EditText
+            android:id="@+id/feedback_email_input"
+            android:hint="@string/feedback_email_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@+id/feedback_name_input"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
 
-    <Button
-        android:id="@+id/feedback_send_button"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:text="@string/about_send_feedback" />
-</RelativeLayout>
+        <EditText
+            android:id="@+id/feedback_issue_input"
+            android:hint="@string/feedback_prefill_input_hint_issue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@+id/feedback_email_input"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/feedback_issue_reproduce_input"
+            android:hint="@string/feedback_prefill_input_hint_reproduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@+id/feedback_issue_input"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/feedback_other_input"
+            android:hint="@string/feedback_prefill_input_hint_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@+id/feedback_issue_reproduce_input"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/feedback_send_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/feedback_other_input"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/action_send_feedback" />
+
+    </RelativeLayout>
+</ScrollView>

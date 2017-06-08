@@ -36,7 +36,7 @@
         android:layout_marginTop="6dp"
         android:text="@string/about_desc_by_zeevox" />
 
-    <Button
+    <!--<Button
         android:id="@+id/buttonFeedback"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="wrap_content"
@@ -45,15 +45,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
         android:hapticFeedbackEnabled="true"
-        android:text="@string/about_send_feedback" />
+        android:text="@string/about_send_feedback" />-->
 
     <TextView
         android:id="@+id/textTimeStamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonFeedback"
+        android:layout_below="@+id/aboutRecorderName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="124dp"
         android:text="@string/info_error"
         android:textAppearance="@android:style/TextAppearance.Material.Small" />
 
