@@ -1,4 +1,4 @@
-package com.zeevox.recorder2.encoders;
+package com.zeevox.recorder.encoders;
 
 interface Encoder {
     void encode(short[] buf, int len);

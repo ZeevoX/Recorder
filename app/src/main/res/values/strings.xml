@@ -100,4 +100,12 @@
 | Android version | android_version |\n
 | SDK version | sdk_version |\n</string>
     <string name="action_pause_resume">Pause/Resume</string>
+    <string name="title_activity_home">Recorder</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="title_record">Record</string>
+    <string name="title_recordings">Recordings</string>
+    <string name="title_settings">Settings</string>
 </resources>

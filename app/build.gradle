@@ -8,6 +8,11 @@ def buildDate() {
     return formatted
 }
 
+// IF BUILDING ON WINDOWS MAKE SURE
+// TO INSTALL COMMAND-LINE GIT! SEE
+// https://git-scm.com/download/win
+// FOR DOWNLOADS, DETAILS AND MORE!
+
 def gitVersionCode() {
     "git fetch".execute()
     def process = "git rev-list --all --count".execute()
@@ -16,9 +21,13 @@ def gitVersionCode() {
 
 def gitVersionName() {
     "git fetch".execute()
-    def process = "git describe --tags --dirty=.debug".execute()
-    return process.text.replaceAll('-', '\\.').trim()
+    def process = "git describe --tags --dirty".execute()
+    return process.text.trim()
 }
+
+def gitSHAShort() { return "git rev-parse --short HEAD".execute().text.trim() }
+def gitSHALong() { return "git rev-parse HEAD".execute().text.trim() }
+def gitTag() { return "git describe --abbrev=0 --tags".execute().text.trim() }
 
 android {
 
@@ -42,7 +51,11 @@ android {
     defaultConfig {
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
-        applicationId "com.zeevox.recorder2"
+        buildConfigField "String", "gitSHAShort", gitSHAShort()
+        buildConfigField "String", "gitSHALong", gitSHALong()
+        buildConfigField "String", "gitTag", gitTag()
+        
+        applicationId "com.zeevox.recorder"
 
         minSdkVersion 23
         targetSdkVersion 26
@@ -98,20 +111,19 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-
-    /*               FABToolbar by fafaldo              */
-    /*       https://github.com/fafaldo/FABToolbar      */
-    //compile 'com.github.fafaldo:fab-toolbar:1.2.0'
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:26.0.0-beta2'
+    compile 'com.android.support:design:26.0.0-beta2'
+    compile 'com.android.support:recyclerview-v7:26.0.0-beta2'
+    //compile 'com.android.support:preference-v7:26.0.0-beta2'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     /*          Material Dialogs by afollestad          */
     /*  https://github.com/afollestad/material-dialogs  */
     //compile 'com.afollestad.material-dialogs:core:0.9.4.5'
-    //compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
+    //implementation 'com.afollestad.material-dialogs:commons:0.9.4.5'
 
     /*               LicensesDialog by PSDev            */
     /*     https://github.com/PSDev/LicensesDialog      */
-    compile('de.psdev.licensesdialog:licensesdialog:1.8.2')
+    compile 'de.psdev.licensesdialog:licensesdialog:1.8.2'
 }

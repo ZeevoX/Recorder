@@ -1,4 +1,4 @@
-package com.zeevox.recorder2;
+package com.zeevox.recorder;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, getClass()));
                 overridePendingTransition(0, 0);
                 break;
+
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
 
             case R.id.action_about:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));

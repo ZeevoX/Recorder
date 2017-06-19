@@ -1,50 +1,22 @@
-package com.zeevox.recorder2;
+package com.zeevox.recorder;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Vibrator;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-public class AboutActivity extends AppCompatActivity {
-
-    int i;
+public class FeedbackActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_feedback);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        setTheme(preferences.getBoolean("key_app_theme", false) ? R.style.AppThemeBlack : R.style.AppTheme);
-
-        setContentView(R.layout.activity_about);
-
-        final ImageView recorderIcon = (ImageView) findViewById(R.id.aboutRecorderIcon);
-        recorderIcon.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(30);
-                if (i == 7) {
-                    startActivity(new Intent(AboutActivity.this, FeedbackActivity.class));
-                    i = 0;
-                } else {
-                    i = i+1;
-                }
-                return false;
-            }
-        });
         //FEEDBACK BUTTON
-        final Button feedbackButton = (Button) findViewById(R.id.buttonFeedback);
+        final Button feedbackButton = findViewById(R.id.feedback_send_button);
         feedbackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,8 +49,5 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
-        ((TextView) findViewById(R.id.textTimeStamp)).setText(String.format("%s%s", new Object[]{getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME}));
-        /*final TextView timestampTextView = (TextView) findViewById(R.id.textTimeStamp);
-        timestampTextView.setText(String.format("%s%s", getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME));*/
     }
 }

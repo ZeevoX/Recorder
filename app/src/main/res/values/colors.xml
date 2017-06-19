@@ -19,6 +19,10 @@
     <color name="samsung_red">#ffe12924</color>
     <color name="samsung_pink">#ffF44336</color>
 
+    <color name="vumeter_background_color">#FFFAFAFA</color>
+    <color name="vumeter_color">#D3D3D3</color>
+    <color name="vumeter_progress_color">#EF5350</color>
+
     <color name="google_blue">#4285f4</color>
     <color name="google_blue_light">#448aff</color>
     <color name="google_blue_dark">#3367d6</color>

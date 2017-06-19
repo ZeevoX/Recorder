@@ -1,4 +1,4 @@
-package com.zeevox.recorder2;
+package com.zeevox.recorder;
 
 import android.Manifest;
 import android.content.Intent;
@@ -16,8 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.zeevox.recorder2.encoders.EncoderInfo;
-import com.zeevox.recorder2.encoders.RawSamples;
+import com.zeevox.recorder.encoders.EncoderInfo;
+import com.zeevox.recorder.encoders.RawSamples;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,20 +28,20 @@ public class RecordingActivity extends AppCompatActivity {
     //protected SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     private SharedPreferences sharedPreferences;
 
-    final String KEY_RECORDING_CHANNELS = "recording_channels";
-    final String KEY_RECORDING_SAMPLE_RATE = "recording_sample_rate";
-    final String KEY_RECORDING_FORMAT = "recording_format";
+    private final String KEY_RECORDING_CHANNELS = "recording_channels";
+    private final String KEY_RECORDING_SAMPLE_RATE = "recording_sample_rate";
+    // --Commented out by Inspection (19/06/2017 14:25):final String KEY_RECORDING_FORMAT = "recording_format";
 
     //Variable from settings. how many samples per second.
-    int sampleRate;
+    private int sampleRate;
 
     //Setup MediaRecorder
-    MediaRecorder recorder = new MediaRecorder();
+    private final MediaRecorder recorder = new MediaRecorder();
 
     //Temporary file path
-    final String temporaryRecordingFilePath = Environment.getExternalStorageDirectory() + File.separator + "temp.tmp";
+    private final String temporaryRecordingFilePath = Environment.getExternalStorageDirectory() + File.separator + "temp.tmp";
 
-    public static final int REQUEST_MULTIPLE_PERMISSIONS_ID = 456;
+    private static final int REQUEST_MULTIPLE_PERMISSIONS_ID = 456;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +87,7 @@ public class RecordingActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
                 WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON); */
 
-        final FloatingActionButton stop = (FloatingActionButton) findViewById(R.id.recording_pause_resume);
+        final FloatingActionButton stop = findViewById(R.id.recording_pause_resume);
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +97,7 @@ public class RecordingActivity extends AppCompatActivity {
         });
     }
 
-    public void startRecording() throws IOException {
+    private void startRecording() throws IOException {
 
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
@@ -107,62 +107,70 @@ public class RecordingActivity extends AppCompatActivity {
         recorder.start();   // Recording is now started
     }
 
-    public void stopRecording() {
-        recorder.stop();
-        recorder.reset();   // You can reuse the object by going back to setAudioSource() step
-        recorder.release(); // Now the object cannot be reused
-    }
+// --Commented out by Inspection START (19/06/2017 14:25):
+//    public void stopRecording() {
+//        recorder.stop();
+//        recorder.reset();   // You can reuse the object by going back to setAudioSource() step
+//        recorder.release(); // Now the object cannot be reused
+//    }
+// --Commented out by Inspection STOP (19/06/2017 14:25)
 
-    EncoderInfo getInfo() {
-        //Set sample rate for the recording (44.1 KHz default)
-        sampleRate = sharedPreferences.getInt(KEY_RECORDING_SAMPLE_RATE, 44100);
-        //Set number of recording channels (2 channels default)
-        final int channels = sharedPreferences.getInt(KEY_RECORDING_CHANNELS, 2);
-        //Get supported bps on this device
-        final int bps = RawSamples.AUDIO_FORMAT == AudioFormat.ENCODING_PCM_16BIT ? 16 : 8;
-        //Pass the info
-        return new EncoderInfo(channels, sampleRate, bps);
-    }
+// --Commented out by Inspection START (19/06/2017 14:25):
+//    EncoderInfo getInfo() {
+//        //Set sample rate for the recording (44.1 KHz default)
+//        sampleRate = sharedPreferences.getInt(KEY_RECORDING_SAMPLE_RATE, 44100);
+//        //Set number of recording channels (2 channels default)
+//        final int channels = sharedPreferences.getInt(KEY_RECORDING_CHANNELS, 2);
+//        //Get supported bps on this device
+//        final int bps = RawSamples.AUDIO_FORMAT == AudioFormat.ENCODING_PCM_16BIT ? 16 : 8;
+//        //Pass the info
+//        return new EncoderInfo(channels, sampleRate, bps);
+//    }
+// --Commented out by Inspection STOP (19/06/2017 14:25)
 
-    public void permissionsCheckRecording() throws IOException {
+// --Commented out by Inspection START (19/06/2017 14:25):
+//    public void permissionsCheckRecording() throws IOException {
+//
+//        int permissionStorageWrite = ContextCompat.checkSelfPermission(RecordingActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//        int permissionStorageRead = ContextCompat.checkSelfPermission(RecordingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+//        int permissionRecordAudio = ContextCompat.checkSelfPermission(RecordingActivity.this, Manifest.permission.RECORD_AUDIO);
+//
+//        if (permissionRecordAudio == PackageManager.PERMISSION_DENIED || permissionStorageRead == PackageManager.PERMISSION_DENIED || permissionStorageWrite == PackageManager.PERMISSION_DENIED) {
+//            if (ActivityCompat.shouldShowRequestPermissionRationale(RecordingActivity.this, Manifest.permission.RECORD_AUDIO)
+//                    || ActivityCompat.shouldShowRequestPermissionRationale(RecordingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+//                    || ActivityCompat.shouldShowRequestPermissionRationale(RecordingActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+//
+//                //TODO: Show permission explanation
+//                /*new MaterialDialog.Builder(this)
+//                        .content(R.string.dialog_permissions_record_content)
+//                        .positiveText(R.string.action_ok)
+//                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+//                            @Override
+//                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                                permissionsRequestRecording();
+//                            }
+//                        })
+//                        .show();*/
+//
+//            } else {
+//
+//                //Request needed permissions
+//                ActivityCompat.requestPermissions(this, new String[]{
+//                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                        Manifest.permission.RECORD_AUDIO,
+//                        Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_MULTIPLE_PERMISSIONS_ID);
+//            }
+//        } else {
+//            startRecording();
+//        }
+//    }
+// --Commented out by Inspection STOP (19/06/2017 14:25)
 
-        int permissionStorageWrite = ContextCompat.checkSelfPermission(RecordingActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int permissionStorageRead = ContextCompat.checkSelfPermission(RecordingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        int permissionRecordAudio = ContextCompat.checkSelfPermission(RecordingActivity.this, Manifest.permission.RECORD_AUDIO);
-
-        if (permissionRecordAudio == PackageManager.PERMISSION_DENIED || permissionStorageRead == PackageManager.PERMISSION_DENIED || permissionStorageWrite == PackageManager.PERMISSION_DENIED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(RecordingActivity.this, Manifest.permission.RECORD_AUDIO)
-                    || ActivityCompat.shouldShowRequestPermissionRationale(RecordingActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    || ActivityCompat.shouldShowRequestPermissionRationale(RecordingActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
-                //TODO: Show permission explanation
-                /*new MaterialDialog.Builder(this)
-                        .content(R.string.dialog_permissions_record_content)
-                        .positiveText(R.string.action_ok)
-                        .onPositive(new MaterialDialog.SingleButtonCallback() {
-                            @Override
-                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                permissionsRequestRecording();
-                            }
-                        })
-                        .show();*/
-
-            } else {
-
-                //Request needed permissions
-                ActivityCompat.requestPermissions(this, new String[]{
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.RECORD_AUDIO,
-                        Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_MULTIPLE_PERMISSIONS_ID);
-            }
-        } else {
-            startRecording();
-        }
-    }
-
-    public void permissionsRequestRecording() {
-        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_MULTIPLE_PERMISSIONS_ID);
-    }
+// --Commented out by Inspection START (19/06/2017 14:25):
+//    public void permissionsRequestRecording() {
+//        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_MULTIPLE_PERMISSIONS_ID);
+//    }
+// --Commented out by Inspection STOP (19/06/2017 14:25)
 
     /*public void dialogRename() {
         Calendar c = Calendar.getInstance();
@@ -227,11 +235,5 @@ public class RecordingActivity extends AppCompatActivity {
                 .show();
     }*/
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //stopRecording();
-    }
 
 }

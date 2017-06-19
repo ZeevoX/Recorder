@@ -1,4 +1,15 @@
 <resources>
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="chronometer2_margin">28dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="vumeter_layout_margin_minus">11dp</dimen>
+    <dimen name="vumeter_layout_margin">20dp</dimen>
+    <dimen name="vumeter_outer_width">2dp</dimen>
+    <dimen name="vumeter_outer_inner_margin">20dp</dimen>
+    <dimen name="vumeter_progress_width">6dp</dimen>
+    <dimen name="vumeter_progress_dashed_width">4dp</dimen>
 </resources>
