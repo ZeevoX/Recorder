@@ -31,24 +31,4 @@
         android:summary="@string/settings_switch_persistent_notification_summary"
         android:key="key_preference_switch_persistent_notification" />
     </PreferenceCategory>
-
-    <PreferenceCategory android:title="Design">
-        <SwitchPreference
-            android:title="Enable dark theme"
-            android:summary="Give Recorder a new dark coat of paint"
-            android:key="key_app_theme" />
-    </PreferenceCategory>
-
-    <!--<PreferenceCategory android:title="@string/settings_category_miscellaneous">
-        <Preference
-            android:key="key_app_copyright"
-            android:title="@string/app_copyright_title"
-            android:summary="@string/app_copyright" />
-        <SwitchPreference
-            android:key="dev_options"
-            android:defaultValue="false"
-            android:title="Enable developer options"
-            android:summary="This does not add any extra functionality yet"/>
-    </PreferenceCategory>-->
-
 </PreferenceScreen>

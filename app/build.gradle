@@ -2,16 +2,23 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.application'
 
+/*
+You may need to refresh tags from remote.
+"git fetch --tags" does not delete local
+tags. To delete all local tags and sync
+from remote, type these commands in Bash.
+[Courtesy of Richard W on Stack Overflow]
+[  https://stackoverflow.com/a/5373319  ]
+Delete all local tags regardless of type.
+"git tag -l | xargs git tag -d"
+Fetch all tags from remote as usual.
+"git fetch --tags"
+ */
+
 def buildDate() {
     def df = new SimpleDateFormat("yyyyMMdd")
-    String formatted = df.format(new Date())
-    return formatted
+    return df.format(new Date())
 }
-
-// IF BUILDING ON WINDOWS MAKE SURE
-// TO INSTALL COMMAND-LINE GIT! SEE
-// https://git-scm.com/download/win
-// FOR DOWNLOADS, DETAILS AND MORE!
 
 def gitVersionCode() {
     "git fetch".execute()
@@ -19,24 +26,42 @@ def gitVersionCode() {
     return process.text.toInteger()
 }
 
-def gitVersionName() {
+def gitSHALong() {
     "git fetch".execute()
-    def process = "git describe --tags --dirty".execute()
-    return process.text.trim()
+    return "git rev-list --tags --max-count=1".execute().text.trim().toString()
 }
 
-def gitSHAShort() { return "git rev-parse --short HEAD".execute().text.trim() }
-def gitSHALong() { return "git rev-parse HEAD".execute().text.trim() }
-def gitTag() { return "git describe --abbrev=0 --tags".execute().text.trim() }
+def gitTag() {
+    "git fetch".execute()
+    String gitTag = "git describe --tags " + gitSHALong()
+    return gitTag.execute().text.trim().toString()
+}
+
+def gitCommitsSinceTag() {
+    "git fetch".execute()
+    String command = "git rev-list " + gitSHALong() + "..HEAD --count"
+    return command.execute().text.trim().toString()
+}
+
+def gitVersionName() {
+    "git fetch".execute()
+    return gitTag().toString() + "." + gitCommitsSinceTag().toString()
+}
 
 android {
 
     signingConfigs {
-        config {
+        old {
             storeFile file("gitlab_keystore.jks")
             storePassword "recorder"
             keyAlias "Gitlab-PublicKey"
             keyPassword "recorder"
+        }
+        config {
+            storeFile file("../keystore.jks")
+            storePassword System.getenv("STORE_PASSWORD").toString()
+            keyAlias System.getenv("KEY_ALIAS").toString()
+            keyPassword System.getenv("KEY_PASSWORD").toString()
         }
     }
 
@@ -51,10 +76,7 @@ android {
     defaultConfig {
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
-        buildConfigField "String", "gitSHAShort", gitSHAShort()
-        buildConfigField "String", "gitSHALong", gitSHALong()
-        buildConfigField "String", "gitTag", gitTag()
-        
+
         applicationId "com.zeevox.recorder"
 
         minSdkVersion 23
@@ -73,6 +95,7 @@ android {
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
+            versionNameSuffix '.debug_' + buildDate()
         }
 
         weekly {
@@ -83,7 +106,6 @@ android {
             shrinkResources true
             zipAlignEnabled true
             signingConfig signingConfigs.config
-
             versionNameSuffix '.weekly_' + buildDate()
         }
 
@@ -95,7 +117,6 @@ android {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
-
             versionNameSuffix '.beta'
         }
 
@@ -106,6 +127,7 @@ android {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
+            versionNameSuffix '.release'
         }
     }
 }
@@ -116,14 +138,18 @@ dependencies {
     compile 'com.android.support:design:26.0.0-beta2'
     compile 'com.android.support:recyclerview-v7:26.0.0-beta2'
     //compile 'com.android.support:preference-v7:26.0.0-beta2'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     /*          Material Dialogs by afollestad          */
     /*  https://github.com/afollestad/material-dialogs  */
-    //compile 'com.afollestad.material-dialogs:core:0.9.4.5'
-    //implementation 'com.afollestad.material-dialogs:commons:0.9.4.5'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
+    implementation 'com.afollestad.material-dialogs:commons:0.9.4.5'
 
     /*               LicensesDialog by PSDev            */
     /*     https://github.com/PSDev/LicensesDialog      */
-    compile 'de.psdev.licensesdialog:licensesdialog:1.8.2'
+    //compile 'de.psdev.licensesdialog:licensesdialog:1.8.2'
+
+    /*          Android Audio Library by axet           */
+    /*   https://gitlab.com/axet/android-audio-library  */
+    //compile 'com.github.axet:android-audio-library:1.0.28'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }

@@ -6,21 +6,16 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="isLightTheme">true</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="colorControlNormal">@color/colorAccent</item>
-        <item name="android:colorControlNormal">@color/colorAccent</item>
     </style>
 
-    <style name="ThemeOverlay.AppTheme.ActionBar.Accent" parent="@android:style/ThemeOverlay.Material.ActionBar">
-        <item name="android:textColorPrimary">@color/colorAccent</item>
-        <item name="android:textColorSecondary">@color/colorAccent</item>
+    <style name="SettingsTheme" parent="@android:style/Theme.Material.Light">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <!--<item name="android:titleTextColor">@color/colorAccent</item>-->
     </style>
 
-    <style name="ThemeOverlay.AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
-        <!-- Parent theme sets colorControlNormal to textColorPrimary. -->
-        <item name="android:textColorPrimary">@color/colorAccent</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -37,7 +32,7 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="AppThemeRecording" parent = "Theme.AppCompat.NoActionBar">
+    <style name="AppThemeRecording" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/recording_background</item>
         <item name="colorPrimaryDark">@color/recording_background_dark</item>
         <item name="colorAccent">@color/recording_background</item>
@@ -53,6 +48,5 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

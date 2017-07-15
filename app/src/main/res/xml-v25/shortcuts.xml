@@ -15,7 +15,7 @@
     </shortcut>
     <shortcut
         android:shortcutId="settings"
-        android:enabled="false"
+        android:enabled="true"
         android:icon="@drawable/ic_shortcut_settings"
         android:shortcutShortLabel="@string/shortcut_settings_title"
         android:shortcutLongLabel="@string/shortcut_settings_desc"
