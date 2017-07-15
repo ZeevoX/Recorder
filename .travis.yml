@@ -15,8 +15,8 @@ cache:
   - "$HOME/.gradle/wrapper/"
   - "$HOME/.android/build-cache"
 script:
-- bash mkdir ~/recorder-apk/
-- bash ./gradlew assembleWeekly -s ~/recorder-apk/
+- bash mkdir recorder-apk/
+- bash ./gradlew assembleWeekly -s recorder-apk/
 group: stable
 dist: precise
 os: linux
@@ -24,6 +24,6 @@ deploy:
   provider: releases
   api_key:
     secure: v8LDi+UUsCl2sPfiwUAx6ArENW1wjy48bP/hvwW64yAXkaB07za9jwOBHwD8x6cSpZRuMYf7VuJ2vFSyChO4CbCD6JHRjmqHUtdh6dngoOwV5VRFEmJ3zQ+M2FlC1IwaW92qgOVfOj+gagAg15KqVGal5y3XoILc3t44qKMap8R4dboPoptMU3Z2NP4DwTtclsiDf4rH/Jbrjz4oFMAFhFRFNuvYWquzirqTEW86dPMfmz56pu3mAVr1lRkcJgopxCi215124kDj9eF5+aGRbC9wYZbCmJCDLHLJg1RJ4WmeVSnTrz9a63COLHO2LP4ohfRrA3OMNSdBge/e2nX8TDSRIuiBTxxjJLJAVjumoX5Ln/hY8T4SFSHBcGypSgRPUeJjx8OL4jdhCas36YvgX1z2sOFVixyqPBfOUH+8ieCgqiiLpKjd1J/fdRh9tPmHrpd52NSJIgwS2QrINvIsQLswjFR6GtYkZbgh8bnLFyVSSwID0/VQPSZsE9d4yDDmi/aDcg8xw1W0nEtKI+oBwVMjTuOJ4bjcYaZYduJY5ZSFRSsTtwiOFAs6MgkM8h8F6okXs2uk5LIqCu1pB2ds/ozk6gRMmT0dynDH27gb0Nyc928oBCAwsw0vMHA+0kE0wD0TWovEzyyY6H5/7xr3r3x9X2gjO5ortRZL/UlA9QA=
-  file: "~/recorder-apk/*.apk"
+  file: "recorder-apk/*.apk"
   on:
     repo: ZeevoX/Recorder
