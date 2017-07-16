@@ -46,8 +46,11 @@ public class FeedbackActivity extends AppCompatActivity {
                     //IF/ELSE to prevent no title if user deletes all characters
                     if (issueTitleInput.getText().toString().isEmpty()) {
                         getSupportActionBar().setTitle(R.string.action_send_feedback);
+                        issueTitleInputLayout.setError(getString(R.string.feedback_error_empty));
+                        requestFocus(issueTitleInputLayout);
                     } else {
                         getSupportActionBar().setTitle(issueTitleInput.getText().toString());
+                        issueReproduceInputLayout.setErrorEnabled(false);
                     }
                 } catch (NullPointerException npe) {
                     npe.printStackTrace();
