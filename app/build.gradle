@@ -113,7 +113,6 @@ android {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
-            signingConfig signingConfigs.config
             versionNameSuffix '.weekly_' + buildDate()
         }
 
