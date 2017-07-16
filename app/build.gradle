@@ -87,7 +87,9 @@ android {
 
         android.applicationVariants.all { variant ->
             variant.outputs.all {
-                outputFileName = "Recorder-${gitVersionCode()}-${versionName}.apk"
+                if ((variant.name) != "travis") {
+                    outputFileName = "Recorder-${versionCode}-${versionName}.apk"
+                }
             }
         }
     }
@@ -134,6 +136,17 @@ android {
             shrinkResources true
             zipAlignEnabled true
             versionNameSuffix '.release'
+        }
+
+        travis {
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            signingConfig signingConfigs.config
+            versionNameSuffix '.weekly_' + buildDate()
         }
     }
 }

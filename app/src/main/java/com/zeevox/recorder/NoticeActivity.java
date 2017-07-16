@@ -25,6 +25,18 @@ public class NoticeActivity extends AppCompatActivity {
                     }
                 });
                 break;
+            case "travis":
+                setContentView(R.layout.notice_weekly);
+                Button buttonTravis = findViewById(R.id.dogscreen_confirm_button_weekly);
+                buttonTravis.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("Recorder_NoticeActivity", "Button click");
+                        startActivity(new Intent(NoticeActivity.this, MainActivity.class));
+                        finish();
+                    }
+                });
+                break;
             case "debug":
                 setContentView(R.layout.notice_debug);
                 Button buttonDebug = findViewById(R.id.dogscreen_confirm_button_debug);

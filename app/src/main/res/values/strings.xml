@@ -104,8 +104,8 @@
     <string name="notice_debug_desc">This is an internal application build that must only be used for testing by developers. Please do not distribute.</string>
     <string name="notice_beta_title">This is a beta release</string>
     <string name="notice_beta_desc">This application build may be unstable or lacking certain functions. Please only give private feedback to the developers.</string>
-    <string name="notice_weekly_title">This is an internal release</string>
-    <string name="notice_weekly_desc">This application build can only be shared with approved testers and developers.</string>
+    <string name="notice_weekly_title">This is a bleeding edge release</string>
+    <string name="notice_weekly_desc">This application build has been built automatically and has not been tested.</string>
     <string name="notice_confirmation">GOT IT</string>
     <string name="notice_playful_dog_content_desc">Playful dog illustration</string>
     <string name="open_source_licenses">Open source licenses</string>
