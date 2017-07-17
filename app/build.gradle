@@ -50,21 +50,6 @@ def gitVersionName() {
 
 android {
 
-    signingConfigs {
-        old {
-            storeFile file("gitlab_keystore.jks")
-            storePassword "recorder"
-            keyAlias "Gitlab-PublicKey"
-            keyPassword "recorder"
-        }
-        config {
-            storeFile file("../keystore.jks")
-            storePassword System.getenv("STORE_PASSWORD").toString()
-            keyAlias System.getenv("KEY_ALIAS").toString()
-            keyPassword System.getenv("KEY_PASSWORD").toString()
-        }
-    }
-
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -87,9 +72,7 @@ android {
 
         android.applicationVariants.all { variant ->
             variant.outputs.all {
-                if ((variant.name) != "travis") {
-                    outputFileName = "Recorder-${versionCode}-${versionName}.apk"
-                }
+                outputFileName = "Recorder-${versionCode}-${versionName}.apk"
             }
         }
     }
@@ -136,27 +119,15 @@ android {
             zipAlignEnabled true
             versionNameSuffix '.release'
         }
-
-        travis {
-            debuggable false
-            jniDebuggable false
-            renderscriptDebuggable false
-            minifyEnabled true
-            shrinkResources true
-            zipAlignEnabled true
-            signingConfig signingConfigs.config
-            versionNameSuffix '.weekly_' + buildDate()
-        }
     }
 }
 
 dependencies {
-    //implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.0.0-beta2'
     implementation 'com.android.support:design:26.0.0-beta2'
-    //implementation 'com.android.support:recyclerview-v7:26.0.0-beta2'
+    implementation 'com.android.support:recyclerview-v7:26.0.0-beta2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    //implementation 'com.android.support:preference-v7:26.0.0-beta2'
 
     /*          Material Dialogs by afollestad          */
     /*  https://github.com/afollestad/material-dialogs  */
@@ -165,7 +136,7 @@ dependencies {
 
     /*               LicensesDialog by PSDev            */
     /*     https://github.com/PSDev/LicensesDialog      */
-    //implementation 'de.psdev.licensesdialog:licensesdialog:1.8.2'
+    implementation 'de.psdev.licensesdialog:licensesdialog:1.8.2'
 
     /*          Android Audio Library by axet           */
     /*   https://gitlab.com/axet/android-audio-library  */

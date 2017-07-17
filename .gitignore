@@ -1,5 +1,5 @@
 *.apk
-gen/
+#gen/
 .gradle/
 build/
 local.properties
@@ -18,3 +18,4 @@ Thumbs.db
 !/gradle/wrapper/gradle-wrapper.jar
 libs/
 .idea/copyright/
+upload.bat
