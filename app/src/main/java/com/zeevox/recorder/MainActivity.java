@@ -72,6 +72,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*boolean stopC;
+    public int minBuffer = AudioRecord.getMinBufferSize(44100, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
+    MediaRecorder recorder = new MediaRecorder();
+    public boolean isRecording;
+
+    public short[] startCapture() {
+        final AudioRecord record = new AudioRecord(MediaRecorder.AudioSource.DEFAULT,
+                44100,
+                AudioFormat.CHANNEL_IN_MONO,
+                AudioFormat.ENCODING_PCM_16BIT,
+                (minBuffer * 100));
+        short[] point = new short[minBuffer * 100];
+        record.startRecording();
+        System.out.println(minBuffer * 100);
+        int nbPoint = record.read(point, 0, point.length);
+        record.stop();
+        record.release();
+        return point;
+    }
+
+    public void writeSound(short[] point) {
+        AudioTrack track = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT, (minBuffer * 200), AudioTrack.MODE_STATIC);
+        track.write(point, 0, point.length);
+        track.play();
+    }*/
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_theme).setTitle(this.mDarkTheme ? R.string.action_theme_light : R.string.action_theme_dark);

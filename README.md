@@ -1,7 +1,6 @@
 ![Recorder icon](https://raw.githubusercontent.com/ZeevoX/Recorder/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png "Recorder icon")
 <br><br>
-![Google Play Version](https://img.shields.io/badge/Google%20Play-v0.1.0--nightly-brightgreen.svg "Google Play Version")
-![Github Version](https://img.shields.io/badge/Github-v0.2.0--WIP-orange.svg "Github Version")
-![Build System](https://travis-ci.org/ZeevoX/Recorder.svg?branch=master "Build System")
+[ ![Download](https://api.bintray.com/packages/zeevox/Recorder/Recorder/images/download.svg) ](https://bintray.com/zeevox/Recorder/Recorder/_latestVersion)
+[![build status](https://gitlab.com/ZeevoX/Recorder_build_system/badges/master/build.svg)](https://gitlab.com/ZeevoX/Recorder_build_system/commits/master)
 # Recorder
 Record all the sounds around you with just one tap!

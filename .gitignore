@@ -1,5 +1,5 @@
 *.apk
-#gen/
+gen/
 .gradle/
 build/
 local.properties
@@ -19,3 +19,4 @@ Thumbs.db
 libs/
 .idea/copyright/
 upload.bat
+local.bat
