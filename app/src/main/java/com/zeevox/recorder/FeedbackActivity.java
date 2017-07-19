@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -29,16 +28,10 @@ public class FeedbackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
 
-
-
         final EditText issueTitleInput = findViewById(R.id.feedback_issue_input);
         final EditText issueReproduceInput = findViewById(R.id.feedback_issue_reproduce_input);
         final EditText expectedResultInput = findViewById(R.id.feedback_expected_result);
         final EditText actualResultInput = findViewById(R.id.feedback_actual_result);
-        final TextInputLayout issueTitleInputLayout = findViewById(R.id.feedback_issue_input_layout);
-        final TextInputLayout issueReproduceInputLayout = findViewById(R.id.feedback_issue_reproduce_input_layout);
-        final TextInputLayout expectedResultInputLayout = findViewById(R.id.feedback_expected_result_layout);
-        final TextInputLayout actualResultInputLayout = findViewById(R.id.feedback_actual_result_layout);
 
         issueTitleInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -47,19 +40,7 @@ public class FeedbackActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
-                try {
-                    //IF/ELSE to prevent no title if user deletes all characters
-                    if (issueTitleInput.getText().toString().isEmpty()) {
-                        getSupportActionBar().setTitle(R.string.action_send_feedback);
-                        issueTitleInputLayout.setError(getString(R.string.feedback_error_empty));
-                        requestFocus(issueTitleInputLayout);
-                    } else {
-                        getSupportActionBar().setTitle(issueTitleInput.getText().toString());
-                        issueReproduceInputLayout.setErrorEnabled(false);
-                    }
-                } catch (NullPointerException npe) {
-                    npe.printStackTrace();
-                }
+                validateIssueTitle();
             }
         });
 
@@ -70,12 +51,7 @@ public class FeedbackActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
-                if (issueReproduceInput.getText().toString().isEmpty()) {
-                    issueReproduceInputLayout.setError(getString(R.string.feedback_error_empty));
-                    requestFocus(issueReproduceInputLayout);
-                } else {
-                    issueReproduceInputLayout.setErrorEnabled(false);
-                }
+                validateReproductionSteps();
             }
         });
         expectedResultInput.addTextChangedListener(new TextWatcher() {
@@ -85,12 +61,7 @@ public class FeedbackActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
-                if (expectedResultInput.getText().toString().isEmpty()) {
-                    expectedResultInputLayout.setError(getString(R.string.feedback_error_empty));
-                    requestFocus(expectedResultInputLayout);
-                } else {
-                    expectedResultInputLayout.setErrorEnabled(false);
-                }
+                validateExpectedResult();
             }
         });
         actualResultInput.addTextChangedListener(new TextWatcher() {
@@ -100,12 +71,7 @@ public class FeedbackActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
-                if (actualResultInput.getText().toString().isEmpty()) {
-                    actualResultInputLayout.setError(getString(R.string.feedback_error_empty));
-                    requestFocus(actualResultInputLayout);
-                } else {
-                    actualResultInputLayout.setErrorEnabled(false);
-                }
+                validateActualResult();
             }
         });
 
@@ -154,20 +120,26 @@ public class FeedbackActivity extends AppCompatActivity {
                 //Set email intent
                 emailIntent.putExtra(Intent.EXTRA_TEXT, feedbackMessage);
 
-                CheckBox checkNoDublicate = findViewById(R.id.check_no_duplicate);
+                CheckBox checkNoDuplicate = findViewById(R.id.check_no_duplicate);
                 CheckBox checkLatestVersion = findViewById(R.id.check_latest_version);
                 CheckBox checkGenericTitle = findViewById(R.id.check_generic_title);
                 CheckBox checkDeviceInfo = findViewById(R.id.check_device_info);
 
-                if (checkNoDublicate.isChecked() && checkLatestVersion.isChecked() && checkGenericTitle.isChecked() && checkDeviceInfo.isChecked()) {
+                if (checkNoDuplicate.isChecked() && checkLatestVersion.isChecked() && checkGenericTitle.isChecked() && checkDeviceInfo.isChecked()
+                        && validateIssueTitle() && validateReproductionSteps() && validateExpectedResult() && validateActualResult()) {
                     try {
                         //Start default email client
                         startActivity(emailIntent);
+                        finish();
                     } catch (ActivityNotFoundException activityNotFoundException) {
-                        //TODO: DIALOG TO SAY NO EMAIL CLIENT FOUND
+                        dialogNoEmailApp();
                     }
                 } else {
-                    dialogInvalid();
+                    if (!checkNoDuplicate.isChecked() || !checkLatestVersion.isChecked() || !checkGenericTitle.isChecked() || !checkDeviceInfo.isChecked()) {
+                        dialogInvalid();
+                    } else if (!validateIssueTitle() || !validateReproductionSteps() || !validateExpectedResult() || !validateActualResult()) {
+                        //dialogNoField();
+                    }
                 }
             }
 
@@ -175,20 +147,90 @@ public class FeedbackActivity extends AppCompatActivity {
         });
     }
 
+    public boolean validateIssueTitle() {
+        final TextInputLayout issueTitleInputLayout = findViewById(R.id.feedback_issue_input_layout);
+        final EditText issueTitleInput = findViewById(R.id.feedback_issue_input);
+        try {
+            //IF/ELSE to prevent no title if user deletes all characters
+            if (issueTitleInput.getText().toString().isEmpty()) {
+                getSupportActionBar().setTitle(R.string.action_send_feedback);
+                issueTitleInputLayout.setError(getString(R.string.feedback_error_empty));
+                return false;
+            } else {
+                getSupportActionBar().setTitle(issueTitleInput.getText().toString());
+                issueTitleInputLayout.setErrorEnabled(false);
+                return true;
+            }
+        } catch (NullPointerException npe) {
+            npe.printStackTrace();
+        }
+        return true;
+    }
+
+    public boolean validateReproductionSteps() {
+        final TextInputLayout issueReproduceInputLayout = findViewById(R.id.feedback_issue_reproduce_input_layout);
+        final EditText issueReproduceInput = findViewById(R.id.feedback_issue_reproduce_input);
+        if (issueReproduceInput.getText().toString().isEmpty()) {
+            issueReproduceInputLayout.setError(getString(R.string.feedback_error_empty));
+            return false;
+        } else {
+            issueReproduceInputLayout.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    public boolean validateExpectedResult() {
+        final TextInputLayout expectedResultInputLayout = findViewById(R.id.feedback_expected_result_layout);
+        final EditText expectedResultInput = findViewById(R.id.feedback_expected_result);
+        if (expectedResultInput.getText().toString().isEmpty()) {
+            expectedResultInputLayout.setError(getString(R.string.feedback_error_empty));
+            return false;
+        } else {
+            expectedResultInputLayout.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    public boolean validateActualResult() {
+        final TextInputLayout actualResultInputLayout = findViewById(R.id.feedback_actual_result_layout);
+        final EditText actualResultInput = findViewById(R.id.feedback_actual_result);
+        if (actualResultInput.getText().toString().isEmpty()) {
+            actualResultInputLayout.setError(getString(R.string.feedback_error_empty));
+            return false;
+        } else {
+            actualResultInputLayout.setErrorEnabled(false);
+            return true;
+        }
+    }
+
     public void dialogInvalid() {
         new MaterialDialog.Builder(this)
                 .title("Error")
-                .content("Please make sure you have checked all the boxes")
+                .content("Please make sure you have checked all the boxes.")
                 .positiveText("OK")
-                .titleColor(getResources().getColor(R.color.colorAccent))
+                .titleColor(getResources().getColor(R.color.colorAccent, getTheme()))
                 .autoDismiss(true)
                 .show();
     }
 
-    private void requestFocus(View view) {
-        if (view.requestFocus()) {
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-        }
+    public void dialogNoField() {
+        new MaterialDialog.Builder(this)
+                .title("Error")
+                .content("Please make sure you have filled in all the input fields.")
+                .positiveText("OK")
+                .titleColor(getResources().getColor(R.color.colorAccent, getTheme()))
+                .autoDismiss(true)
+                .show();
+    }
+
+    public void dialogNoEmailApp() {
+        new MaterialDialog.Builder(this)
+                .title("Error")
+                .content("No email application found on your device.\nPlease install a supported email app and try again.")
+                .positiveText("OK")
+                .titleColor(getResources().getColor(R.color.colorAccent, getTheme()))
+                .autoDismiss(true)
+                .show();
     }
 
 }
