@@ -1,5 +1,6 @@
 package com.zeevox.recorder;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class FeedbackActivity extends AppCompatActivity {
 
@@ -135,10 +140,16 @@ public class FeedbackActivity extends AppCompatActivity {
                 //Replace placeholder with data
                 feedbackMessage = feedbackMessage.replace("ACTUAL_RESULT", actualResult);
 
+                //Convert Unix timestamp to human-readable date
+                Date date = new Date(BuildConfig.TIMESTAMP);
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                String timestampFormatted = simpleDateFormat.format(date);
+
                 //Replace device info placeholders with data
                 feedbackMessage = feedbackMessage.replace("recorder_version_name", BuildConfig.VERSION_NAME);
                 feedbackMessage = feedbackMessage.replace("device_fingerprint", Build.FINGERPRINT);
-                feedbackMessage = feedbackMessage.replace("build_timestamp", Long.toString(BuildConfig.TIMESTAMP));
+                feedbackMessage = feedbackMessage.replace("build_timestamp", timestampFormatted);
 
                 //Set email intent
                 emailIntent.putExtra(Intent.EXTRA_TEXT, feedbackMessage);
