@@ -18,19 +18,7 @@
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppThemeBlack" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/colorPrimaryBlack</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryBlackDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="isLightTheme">false</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:navigationBarColor">@color/colorPrimaryBlackDark</item>
-        <item name="android:colorBackground">@color/colorPrimaryBlack</item>
-        <item name="android:windowContentTransitions">true</item>
-    </style>
+    </style>
 
     <style name="AppThemeRecording" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/recording_background</item>
@@ -40,12 +28,7 @@
         <item name="android:statusBarColor">@color/recording_background</item>
         <item name="android:colorBackground">@color/recording_background</item>
         <item name="android:windowContentTransitions">true</item>
-    </style>
-
-    <style name="AppThemeBlack.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
