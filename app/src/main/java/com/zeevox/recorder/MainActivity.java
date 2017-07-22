@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        setContentView(R.layout.activity_recorder);
+        setContentView(R.layout.activity_main);
 
         //TODO: UNTESTED: TEST ON SDK 26
         if (Build.VERSION.SDK_INT >= 26) {
