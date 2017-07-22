@@ -15,20 +15,12 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
-    private final String KEY_THEME = "key_app_theme";
-    private boolean mDarkTheme;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String buildType = BuildConfig.BUILD_TYPE;
-
-        /*if (AppConfig.ENABLE_NEW_HOME) {
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
-            finish();
-        }*/
-
+        String buildType = BuildConfig.BUILD_TYPE;
         this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (buildType.equals("weekly") || buildType.equals("debug") || buildType.equals("beta")) {
@@ -42,18 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, NoticeActivity.class));
             }
         }
-
-        this.mDarkTheme = this.preferences.getBoolean(KEY_THEME, false);
-
-        //migration on removal of dark theme
-        //TODO: Remove all Dark theme references in v0.3
-
-        if (this.mDarkTheme) {
-            this.mDarkTheme = false;
-            this.preferences.edit().putBoolean(KEY_THEME, this.mDarkTheme).apply();
-        }
-
-        setTheme(this.mDarkTheme ? R.style.AppThemeBlack : R.style.AppTheme);
 
         setContentView(R.layout.activity_recorder);
 
