@@ -76,13 +76,7 @@ public class MainActivity extends AppCompatActivity {
         AudioTrack track = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT, (minBuffer * 200), AudioTrack.MODE_STATIC);
         track.write(point, 0, point.length);
         track.play();
-    }*/
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_theme).setTitle(this.mDarkTheme ? R.string.action_theme_light : R.string.action_theme_dark);
-        return true;
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -97,15 +91,6 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
-            case R.id.action_theme:
-                this.mDarkTheme = !this.mDarkTheme;
-                this.preferences.edit().putBoolean(KEY_THEME, this.mDarkTheme).apply();
-                finish();
-                overridePendingTransition(0, 0);
-                startActivity(new Intent(this, getClass()));
-                overridePendingTransition(0, 0);
-                break;
-
             case R.id.action_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
