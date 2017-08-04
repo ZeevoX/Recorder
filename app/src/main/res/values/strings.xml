@@ -91,7 +91,7 @@
     <string name="notice_weekly_desc">This application build has been built automatically and has not been tested.</string>
     <string name="notice_confirmation">GOT IT</string>
     <string name="notice_playful_dog_content_desc">Playful dog illustration</string>
-    <string name="open_source_licenses">Open source licenses</string>
+    <string name="open_source_licenses"><u>Open source licenses</u></string>
     <string name="title_activity_debug">Debug</string>
 
 </resources>

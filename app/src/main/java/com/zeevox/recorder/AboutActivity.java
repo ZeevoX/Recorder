@@ -1,21 +1,35 @@
 package com.zeevox.recorder;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
+import de.psdev.licensesdialog.LicensesDialog;
+import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
+import de.psdev.licensesdialog.licenses.MITLicense;
+import de.psdev.licensesdialog.model.Notice;
+import de.psdev.licensesdialog.model.Notices;
+
 public class AboutActivity extends AppCompatActivity {
-
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        //((TextView) findViewById(R.id.textTimeStamp)).setText(String.format("%s%s", new Object[]{getString(R.string.about_version_placeholder), BuildConfig.VERSION_NAME}));
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_about);
+        TextView versionNameText = findViewById(R.id.textVersionName);
+        String versionName = getString(R.string.about_version_placeholder) + BuildConfig.VERSION_NAME;
+        versionNameText.setText(versionName);
+        TextView openSourceLicencesText = findViewById(R.id.openSourceButton);
+        openSourceLicencesText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogLicences();
+            }
+        });
     }
 
-    /*
     private void dialogLicences() {
 
         //Licences dialog, see https://github.com/PSDev/LicensesDialog
@@ -32,5 +46,4 @@ public class AboutActivity extends AppCompatActivity {
                 .build()
                 .show();
     }
-     */
 }
