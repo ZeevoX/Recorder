@@ -77,15 +77,10 @@ android {
             }
         } */
         /** Gradle 3.3 and below **/
-        setProperty("archivesBaseName", "Recorder-${versionCode}-${versionName}")
         applicationVariants.all { variant ->
-            if (variant)
             variant.outputs.each { output ->
-                def date = new Date();
-                def formattedDate = date.format('yyyyMMddHHmm')
-                output.outputFile = new File(output.outputFile.parent,
-                        output.outputFile.name.replace("-weekly", "-" + formattedDate)
-                )
+                def file = output.packageApplication.outputFile
+                output.packageApplication.outputFile = new File(file.parent, "Recorder-${versionCode}-${versionName}.apk")
             }
         }
     }
