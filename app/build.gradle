@@ -70,14 +70,24 @@ android {
         versionCode gitVersionCode()
         versionName gitVersionName()
 
-        /* AS 3.0+
-        android.applicationVariants.all { variant ->
+        /** Gradle 4.0 and above **/
+        /*android.applicationVariants.all { variant ->
             variant.outputs.all {
                 outputFileName = "Recorder-${versionCode}-${versionName}.apk"
             }
         } */
-        /* AS 2.3.3- */
-        setProperty("archivesBaseName", "Recorder-${versionCode}-${versionName}.apk")
+        /** Gradle 3.3 and below **/
+        setProperty("archivesBaseName", "Recorder-${versionCode}-${versionName}")
+        applicationVariants.all { variant ->
+            if (variant)
+            variant.outputs.each { output ->
+                def date = new Date();
+                def formattedDate = date.format('yyyyMMddHHmm')
+                output.outputFile = new File(output.outputFile.parent,
+                        output.outputFile.name.replace("-weekly", "-" + formattedDate)
+                )
+            }
+        }
     }
 
     buildTypes {
