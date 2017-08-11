@@ -10,28 +10,44 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.zeevox.dogscreen.Dogscreen;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SharedPreferences preferences;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String buildType = BuildConfig.BUILD_TYPE;
-        this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String buildType = BuildConfig.BUILD_TYPE;
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (buildType.equals("weekly") || buildType.equals("debug") || buildType.equals("beta")) {
             String KEY_LAST_BUILD_TYPE = "key_last_build_type";
-            String lastBuildType = this.preferences.getString(KEY_LAST_BUILD_TYPE, "release");
+            String lastBuildType = preferences.getString(KEY_LAST_BUILD_TYPE, "release");
             String KEY_SHOWN_NOTICE_FOR_BUILD_TYPE = "key_notice_for_build_type";
-            boolean noticeShownForBuildType = this.preferences.getBoolean(KEY_SHOWN_NOTICE_FOR_BUILD_TYPE, false);
+            boolean noticeShownForBuildType = preferences.getBoolean(KEY_SHOWN_NOTICE_FOR_BUILD_TYPE, false);
             if (!Objects.equals(lastBuildType, BuildConfig.BUILD_TYPE) && !noticeShownForBuildType) {
-                this.preferences.edit().putBoolean(KEY_SHOWN_NOTICE_FOR_BUILD_TYPE, true).apply();
-                this.preferences.edit().putString(KEY_LAST_BUILD_TYPE, BuildConfig.BUILD_TYPE).apply();
-                startActivity(new Intent(MainActivity.this, NoticeActivity.class));
+                preferences.edit().putBoolean(KEY_SHOWN_NOTICE_FOR_BUILD_TYPE, true).apply();
+                preferences.edit().putString(KEY_LAST_BUILD_TYPE, BuildConfig.BUILD_TYPE).apply();
+                Dogscreen dogscreen = new Dogscreen(this);
+                switch (buildType) {
+                    case "weekly":
+                        dogscreen.setTitle(R.string.notice_weekly_title);
+                        dogscreen.setContent(R.string.notice_weekly_desc);
+                        break;
+                    case "debug":
+                        dogscreen.setTitle(R.string.notice_debug_title);
+                        dogscreen.setContent(R.string.notice_debug_desc);
+                        break;
+                    case "beta":
+                        dogscreen.setTitle(R.string.notice_beta_title);
+                        dogscreen.setContent(R.string.notice_beta_desc);
+                        break;
+                }
+                dogscreen.setFullscreen(false).show();
             }
         }
 

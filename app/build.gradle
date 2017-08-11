@@ -149,4 +149,8 @@ dependencies {
     /*          Android Audio Library by axet           */
     /*   https://gitlab.com/axet/android-audio-library  */
     //compile 'com.github.axet:android-audio-library:1.0.28'
+
+    /*            Dogscreen Library by ZeevoX           */
+    /*         https://github.com/ZeevoX/Dogscreen      */
+    compile 'com.zeevox:dogscreen:2.1.1'
 }

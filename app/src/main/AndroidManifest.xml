@@ -78,9 +78,6 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
         -->
-        <activity
-            android:name=".NoticeActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>
