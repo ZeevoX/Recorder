@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String buildType = BuildConfig.BUILD_TYPE;
+        String buildType = BuildConfig.BUILD_TYPE;
         this.preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (buildType.equals("weekly") || buildType.equals("debug") || buildType.equals("beta")) {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         AudioTrack track = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT, (minBuffer * 200), AudioTrack.MODE_STATIC);
         track.write(point, 0, point.length);
         track.play();
-    }*/
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

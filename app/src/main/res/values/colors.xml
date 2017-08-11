@@ -19,13 +19,13 @@
 
     <color name="samsung_red">#ffe12924</color>
     <color name="samsung_pink">#ffF44336</color>
-    <color name="fafafa">#fafafa</color>
+    <color name="fafafa">#fafafa</color>
     <color name="google_blue">#4285f4</color>
     <color name="google_blue_light">#448aff</color>
     <color name="google_blue_dark">#3367d6</color>
     <color name="navigation_bar_light">#e4e7e9</color>
     <color name="navigation_bar_dark">#21272b</color>
-
+
     <color name="launcher_background_color">#fafafa</color>
     <color name="recording_background">#F44336</color>
     <color name="recording_background_dark">#C62828</color>
@@ -135,5 +135,5 @@
     <color name="wave_time_short_line">#ffc9c9c9</color>
     <color name="wave_time_text">#cc616161</color>
     <color name="wave_trim_handler_time_color">#ff404040</color>
-    <color name="wave_trim_handler_time_select_color">#ff0e8fcb</color>
+    <color name="wave_trim_handler_time_select_color">#ff0e8fcb</color>
 </resources>

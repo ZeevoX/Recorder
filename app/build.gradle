@@ -132,15 +132,15 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.0.0'
-    compile 'com.android.support:design:26.0.0'
-    compile 'com.android.support:recyclerview-v7:26.0.0'
+    compile 'com.android.support:appcompat-v7:26.0.1'
+    compile 'com.android.support:design:26.0.1'
+    //compile 'com.android.support:recyclerview-v7:26.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     /*          Material Dialogs by afollestad          */
     /*  https://github.com/afollestad/material-dialogs  */
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
-    compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
+    //compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
 
     /*               LicensesDialog by PSDev            */
     /*     https://github.com/PSDev/LicensesDialog      */
