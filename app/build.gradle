@@ -108,7 +108,6 @@ android {
         }
 
         beta {
-
             debuggable false
             jniDebuggable false
             renderscriptDebuggable false
