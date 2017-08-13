@@ -1,146 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.zeevox.recorder.FeedbackActivity">
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="com.zeevox.recorder.FeedbackActivity">
 
-    <RelativeLayout
+  <RelativeLayout
+    android:id="@+id/feedback_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.design.widget.TextInputLayout
+      android:id="@+id/feedback_issue_input_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp">
+
+      <EditText
+        android:id="@+id/feedback_issue_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/feedback_root">
+        android:ems="10"
+        android:hint="@string/feedback_hint_issue_title"
+        android:inputType="textMultiLine" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:id="@+id/feedback_issue_input_layout">
+    </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/feedback_issue_input"
-                android:hint="@string/feedback_hint_issue_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textMultiLine" />
+    <android.support.design.widget.TextInputLayout
+      android:id="@+id/feedback_issue_reproduce_input_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_below="@+id/feedback_issue_input_layout">
 
-        </android.support.design.widget.TextInputLayout>
+      <EditText
+        android:id="@+id/feedback_issue_reproduce_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/feedback_hint_reproduction_steps"
+        android:inputType="textMultiLine" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_below="@+id/feedback_issue_input_layout"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/feedback_issue_reproduce_input_layout">
+    </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/feedback_issue_reproduce_input"
-                android:hint="@string/feedback_hint_reproduction_steps"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textMultiLine" />
+    <android.support.design.widget.TextInputLayout
+      android:id="@+id/feedback_expected_result_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_below="@+id/feedback_issue_reproduce_input_layout">
 
-        </android.support.design.widget.TextInputLayout>
+      <EditText
+        android:id="@+id/feedback_expected_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/feedback_hint_expected_result"
+        android:inputType="textMultiLine" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:id="@+id/feedback_expected_result_layout"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_below="@+id/feedback_issue_reproduce_input_layout"
-            android:layout_height="wrap_content">
+    </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/feedback_expected_result"
-                android:hint="@string/feedback_hint_expected_result"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textMultiLine" />
+    <android.support.design.widget.TextInputLayout
+      android:id="@+id/feedback_actual_result_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_below="@+id/feedback_expected_result_layout">
 
-        </android.support.design.widget.TextInputLayout>
+      <EditText
+        android:id="@+id/feedback_actual_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/feedback_hint_actual_result"
+        android:inputType="textMultiLine" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:id="@+id/feedback_actual_result_layout"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_below="@+id/feedback_expected_result_layout"
-            android:layout_height="wrap_content">
+    </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/feedback_actual_result"
-                android:hint="@string/feedback_hint_actual_result"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textMultiLine" />
+    <CheckBox
+      android:id="@+id/check_no_duplicate"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_alignParentStart="true"
+      android:layout_below="@id/feedback_actual_result_layout"
+      android:text="@string/feedback_check_no_duplicate_title" />
 
-        </android.support.design.widget.TextInputLayout>
+    <CheckBox
+      android:id="@+id/check_latest_version"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_alignParentStart="true"
+      android:layout_below="@id/check_no_duplicate"
+      android:text="@string/feedback_check_latest_version" />
 
-        <CheckBox
-            android:id="@+id/check_no_duplicate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/feedback_actual_result_layout"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/feedback_check_no_duplicate_title" />
-
-        <CheckBox
-            android:id="@+id/check_latest_version"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/check_no_duplicate"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/feedback_check_latest_version" />
-
-        <CheckBox
-            android:id="@+id/check_generic_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/check_latest_version"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/feedback_check_generic_title" />
+    <CheckBox
+      android:id="@+id/check_generic_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_alignParentStart="true"
+      android:layout_below="@id/check_latest_version"
+      android:text="@string/feedback_check_generic_title" />
 
 
-        <CheckBox
-            android:id="@+id/check_device_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/check_generic_title"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/feedback_check_device_info" />
+    <CheckBox
+      android:id="@+id/check_device_info"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_alignParentStart="true"
+      android:layout_below="@id/check_generic_title"
+      android:text="@string/feedback_check_device_info" />
 
 
-        <Button
-            android:id="@+id/feedback_send_button"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/check_device_info"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/action_send_feedback" />
+    <Button
+      android:id="@+id/feedback_send_button"
+      style="@style/Widget.AppCompat.Button.Colored"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_alignParentEnd="true"
+      android:layout_below="@id/check_device_info"
+      android:text="@string/action_send_feedback" />
 
-    </RelativeLayout>
+  </RelativeLayout>
 </ScrollView>
