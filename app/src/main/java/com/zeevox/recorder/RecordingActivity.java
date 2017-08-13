@@ -77,7 +77,6 @@ public class RecordingActivity extends AppCompatActivity {
       getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
     } else if (sharedPreferences.getBoolean(
         KEY_SHOW_ON_LOCKSCREEN, true /* check from settings if tto show on the lockscreen */)) {
-      getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
       getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
     }
 
