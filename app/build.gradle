@@ -71,18 +71,18 @@ android {
         versionName gitVersionName()
 
         /** Gradle 4.0 and above **/
-        /*android.applicationVariants.all { variant ->
+        android.applicationVariants.all { variant ->
             variant.outputs.all {
                 outputFileName = "Recorder-${versionCode}-${versionName}.apk"
             }
-        } */
+        }
         /** Gradle 3.3 and below **/
-        applicationVariants.all { variant ->
+        /*applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 def file = output.packageApplication.outputFile
                 output.packageApplication.outputFile = new File(file.parent, "Recorder-${versionCode}-${versionName}.apk")
             }
-        }
+        }*/
     }
 
     buildTypes {
