@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context="com.zeevox.recorder.AboutActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zeevox.recorder.AboutActivity">
 
-  <ImageView
-    android:id="@+id/aboutRecorderIcon"
-    android:layout_width="96dp"
-    android:layout_height="96dp"
-    android:layout_marginTop="128dp"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:contentDescription="@string/about_img_recorder_icon_alt"
-    app:srcCompat="@drawable/recorder" />
+    <ImageView
+        android:id="@+id/aboutRecorderIcon"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="128dp"
+        android:contentDescription="@string/about_img_recorder_icon_alt"
+        app:srcCompat="@drawable/recorder" />
 
-  <TextView
-    android:id="@+id/aboutRecorderName"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:layout_below="@+id/aboutRecorderIcon"
-    android:layout_centerHorizontal="true"
-    android:text="@string/app_name"
-    android:textAppearance="@android:style/TextAppearance.Material.Title"
-    android:textSize="26sp" />
+    <TextView
+        android:id="@+id/aboutRecorderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aboutRecorderIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/app_name"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:textSize="26sp" />
 
-  <TextView
-    android:id="@+id/aboutRecorderDesc"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="6dp"
-    android:layout_below="@+id/aboutRecorderName"
-    android:layout_centerHorizontal="true"
-    android:text="@string/about_desc_by_zeevox" />
+    <TextView
+        android:id="@+id/aboutRecorderDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aboutRecorderName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:text="@string/about_desc_by_zeevox" />
 
-  <TextView
-    android:id="@+id/textVersionName"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="124dp"
-    android:layout_below="@+id/aboutRecorderName"
-    android:layout_centerHorizontal="true"
-    android:text="@string/info_error"
-    android:textAppearance="@android:style/TextAppearance.Material.Small" />
+    <TextView
+        android:id="@+id/textVersionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aboutRecorderName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="124dp"
+        android:text="@string/info_error"
+        android:textAppearance="@android:style/TextAppearance.Material.Small" />
 
-  <TextView
-    android:id="@+id/openSourceButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_below="@+id/textVersionName"
-    android:layout_centerHorizontal="true"
-    android:text="@string/open_source_licenses"
-    android:textAppearance="@android:style/TextAppearance.Material.Small"
-    android:textColor="@color/google_blue" />
+    <TextView
+        android:id="@+id/openSourceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textVersionName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/open_source_licenses"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:textColor="@color/google_blue" />
 
 </RelativeLayout>

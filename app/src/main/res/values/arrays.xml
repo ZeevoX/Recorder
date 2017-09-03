@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string-array name="recording_formats_titles">
-    <item>3GPP</item>
-    <item>M4A (recommended)</item>
-    <item>WAV</item>
-  </string-array>
-  <string-array name="recording_formats_values">
-    <item>1</item>
-    <item>2</item>
-    <item>3</item>
-  </string-array>
-  <string-array name="recording_sampling_rate_titles">
-    <item>8000</item>
-    <item>16000</item>
-    <item>32000</item>
-    <item>44100 (recommended)</item>
-    <item>48000</item>
-  </string-array>
-  <string-array name="recording_sampling_rate_values">
-    <item>8000</item>
-    <item>16000</item>
-    <item>32000</item>
-    <item>44100</item>
-    <item>48000</item>
-  </string-array>
+    <string-array name="recording_formats_titles">
+        <item>3GPP</item>
+        <item>M4A (recommended)</item>
+        <item>WAV</item>
+    </string-array>
+    <string-array name="recording_formats_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="recording_sampling_rate_titles">
+        <item>8000</item>
+        <item>16000</item>
+        <item>32000</item>
+        <item>44100 (recommended)</item>
+        <item>48000</item>
+    </string-array>
+    <string-array name="recording_sampling_rate_values">
+        <item>8000</item>
+        <item>16000</item>
+        <item>32000</item>
+        <item>44100</item>
+        <item>48000</item>
+    </string-array>
 </resources>

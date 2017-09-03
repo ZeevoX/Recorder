@@ -9,16 +9,18 @@ package com.zeevox.recorder.audio;
  * @author mzechner
  */
 public interface AudioRecorder extends Disposable {
-  /**
-   * Reads in numSamples samples into the array samples starting at offset. If the recorder is in
-   * stereo you have to multiply numSamples by 2.
-   *
-   * @param samples the array to write the samples to
-   * @param offset the offset into the array
-   * @param numSamples the number of samples to be read
-   */
-  public void read(short[] samples, int offset, int numSamples);
+    /**
+     * Reads in numSamples samples into the array samples starting at offset. If the recorder is in
+     * stereo you have to multiply numSamples by 2.
+     *
+     * @param samples    the array to write the samples to
+     * @param offset     the offset into the array
+     * @param numSamples the number of samples to be read
+     */
+    public void read(short[] samples, int offset, int numSamples);
 
-  /** Disposes the AudioRecorder */
-  public void dispose();
+    /**
+     * Disposes the AudioRecorder
+     */
+    public void dispose();
 }

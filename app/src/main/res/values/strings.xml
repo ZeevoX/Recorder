@@ -1,67 +1,67 @@
 <resources>
-  <string name="app_name">Recorder</string>
-  <string name="app_copyright_title">Open-source Licenses</string>
-  <string name="app_copyright">Copyright © 2016 – 2017 Timothy Langer (ZeevoX). Tap to learn more…</string>
-  <string name="settings_title">Recording Settings</string>
-  <string name="settings_switch_high_quality_title">Enable high quality recording</string>
-  <string name="settings_switch_high_quality_summary">If enabled, recordings will take up more space on your device, but will sound clearer on playback.</string>
-  <string name="settings_sampling_rate_title">Recording sampling rate</string>
-  <string name="settings_sampling_rate_values">
+    <string name="app_name">Recorder</string>
+    <string name="app_copyright_title">Open-source Licenses</string>
+    <string name="app_copyright">Copyright © 2016 – 2017 Timothy Langer (ZeevoX). Tap to learn more…</string>
+    <string name="settings_title">Recording Settings</string>
+    <string name="settings_switch_high_quality_title">Enable high quality recording</string>
+    <string name="settings_switch_high_quality_summary">If enabled, recordings will take up more space on your device, but will sound clearer on playback.</string>
+    <string name="settings_sampling_rate_title">Recording sampling rate</string>
+    <string name="settings_sampling_rate_values">
         <item>8000</item>
         <item>16000</item>
         <item>41000</item>
         <item>48000</item>
     </string>
-  <string name="settings_category_notifications">Notifications</string>
-  <string name="settings_switch_persistent_notification_title">Show a notification when recording</string>
-  <string name="settings_switch_persistent_notification_summary">When recording, display a notification with \"pause\" and \"stop\" actions for easy access.</string>
-  <string name="settings_category_miscellaneous">Miscellaneous</string>
-  <string name="info_error">Error occurred…</string>
-  <string name="action_settings">Settings</string>
-  <string name="action_delete">Delete</string>
-  <string name="action_cancel">Cancel</string>
-  <string name="action_ok">OK</string>
-  <string name="action_save">Save</string>
-  <string name="action_no_thanks">No thanks</string>
-  <string name="action_dont_ask_again">Don\'t ask me again</string>
-  <string name="action_dismiss">Dismiss</string>
-  <string name="action_try_again">Try again</string>
-  <string name="action_yeah_sure">Yeah, sure!</string>
-  <string name="action_close">Close</string>
-  <string name="action_close_and_save">Close and save</string>
-  <string name="action_got_it">Got it</string>
-  <string name="action_yes">Yes</string>
-  <string name="action_get_started">Get started</string>
+    <string name="settings_category_notifications">Notifications</string>
+    <string name="settings_switch_persistent_notification_title">Show a notification when recording</string>
+    <string name="settings_switch_persistent_notification_summary">When recording, display a notification with \"pause\" and \"stop\" actions for easy access.</string>
+    <string name="settings_category_miscellaneous">Miscellaneous</string>
+    <string name="info_error">Error occurred…</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+    <string name="action_save">Save</string>
+    <string name="action_no_thanks">No thanks</string>
+    <string name="action_dont_ask_again">Don\'t ask me again</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_try_again">Try again</string>
+    <string name="action_yeah_sure">Yeah, sure!</string>
+    <string name="action_close">Close</string>
+    <string name="action_close_and_save">Close and save</string>
+    <string name="action_got_it">Got it</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_get_started">Get started</string>
 
-  <string name="stop_recording">Stop Recording</string>
-  <string name="about_img_recorder_icon_alt">Recorder icon</string>
-  <string name="about_desc_by_zeevox">by @ZeevoX</string>
-  <string name="action_about">About</string>
-  <string name="about_version_placeholder">v</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="about_img_recorder_icon_alt">Recorder icon</string>
+    <string name="about_desc_by_zeevox">by @ZeevoX</string>
+    <string name="action_about">About</string>
+    <string name="about_version_placeholder">v</string>
 
-  <string name="dialog_rename_file_title">Name your recording</string>
-  <string name="dialog_rename_file_content">Give a name for your recording. You can always change this later.</string>
-  <string name="dialog_permissions_record_content">Recorder needs permission to use your microphone and permission to save files on your device to continue. Please allow these permissions.</string>
-  <string name="dialog_permissions_storage_content">Recorder needs permission to save recordings to your device to continue. Please allow this permission.</string>
+    <string name="dialog_rename_file_title">Name your recording</string>
+    <string name="dialog_rename_file_content">Give a name for your recording. You can always change this later.</string>
+    <string name="dialog_permissions_record_content">Recorder needs permission to use your microphone and permission to save files on your device to continue. Please allow these permissions.</string>
+    <string name="dialog_permissions_storage_content">Recorder needs permission to save recordings to your device to continue. Please allow this permission.</string>
 
-  <string name="shortcut_record_title">Record</string>
-  <string name="shortcut_record_desc">Start recording all the sounds around you</string>
-  <string name="shortcut_record_disabled_message">Shortcuts are not supported on this build</string>
-  <string name="shortcut_settings_title">Settings</string>
-  <string name="shortcut_settings_desc">Configure recording settings</string>
-  <string name="shortcut_settings_disabled_message">Shortcuts are not supported on this build</string>
-  <string name="title_activity_recording">Recording…</string>
+    <string name="shortcut_record_title">Record</string>
+    <string name="shortcut_record_desc">Start recording all the sounds around you</string>
+    <string name="shortcut_record_disabled_message">Shortcuts are not supported on this build</string>
+    <string name="shortcut_settings_title">Settings</string>
+    <string name="shortcut_settings_desc">Configure recording settings</string>
+    <string name="shortcut_settings_disabled_message">Shortcuts are not supported on this build</string>
+    <string name="title_activity_recording">Recording…</string>
 
-  <string name="action_send_feedback">Send feedback</string>
-  <string name="feedback_name_hint">Your name…</string>
-  <string name="feedback_email_hint">Your email address…</string>
-  <string name="feedback_hint_issue_title">Issue title</string>
-  <string name="feedback_hint_reproduction_steps">Reproduction steps</string>
-  <string name="feedback_hint_expected_result">Expected result</string>
-  <string name="feedback_hint_actual_result">Actual result</string>
-  <string name="feedback_error_empty">Please make sure you have not forgotten this field.</string>
-  <!-- DO NOT TRANSLATE THE PLACEHOLDERS! -->
-  <string name="feedback_prefill_content">
+    <string name="action_send_feedback">Send feedback</string>
+    <string name="feedback_name_hint">Your name…</string>
+    <string name="feedback_email_hint">Your email address…</string>
+    <string name="feedback_hint_issue_title">Issue title</string>
+    <string name="feedback_hint_reproduction_steps">Reproduction steps</string>
+    <string name="feedback_hint_expected_result">Expected result</string>
+    <string name="feedback_hint_actual_result">Actual result</string>
+    <string name="feedback_error_empty">Please make sure you have not forgotten this field.</string>
+    <!-- DO NOT TRANSLATE THE PLACEHOLDERS! -->
+    <string name="feedback_prefill_content">
         #### Reproduction steps\n\n
         REPRODUCTION_STEPS\n\n
         #### Expected Result\n\n
@@ -73,25 +73,25 @@
          - Recorder build timestamp: `build_timestamp`\n
          - Device fingerprint: `device_fingerprint`\n\n\n\n
     </string>
-  <string name="feedback_check_no_duplicate_title">I have verified there are no duplicate active or recent bugs, questions, or requests</string>
-  <string name="feedback_check_latest_version">I have verified that I am using the latest version of Recorder</string>
-  <string name="feedback_check_generic_title">I have given my issue a non-generic title</string>
-  <string name="feedback_check_device_info">I agree that by pressing the "Send feedback" button, Recorder will collect some non-identifiable device information such as device name and Android version</string>
+    <string name="feedback_check_no_duplicate_title">I have verified there are no duplicate active or recent bugs, questions, or requests</string>
+    <string name="feedback_check_latest_version">I have verified that I am using the latest version of Recorder</string>
+    <string name="feedback_check_generic_title">I have given my issue a non-generic title</string>
+    <string name="feedback_check_device_info">I agree that by pressing the "Send feedback" button, Recorder will collect some non-identifiable device information such as device name and Android version</string>
 
-  <string name="action_pause_resume">Pause/Resume</string>
-  <string name="title_record">Record</string>
-  <string name="title_recordings">Recordings</string>
-  <string name="title_settings">Settings</string>
+    <string name="action_pause_resume">Pause/Resume</string>
+    <string name="title_record">Record</string>
+    <string name="title_recordings">Recordings</string>
+    <string name="title_settings">Settings</string>
 
-  <string name="notice_debug_title">This is a developer release</string>
-  <string name="notice_debug_desc">This is an internal application build that must only be used for testing by developers. Please do not distribute.</string>
-  <string name="notice_beta_title">This is a beta release</string>
-  <string name="notice_beta_desc">This application build may be unstable or lacking certain functions. Please only give private feedback to the developers.</string>
-  <string name="notice_weekly_title">This is a bleeding edge release</string>
-  <string name="notice_weekly_desc">This application build has been built automatically and has not been tested.</string>
-  <string name="notice_confirmation">GOT IT</string>
-  <string name="notice_playful_dog_content_desc">Playful dog illustration</string>
-  <string name="open_source_licenses"><u>Open source licenses</u></string>
-  <string name="title_activity_debug">Debug</string>
+    <string name="notice_debug_title">This is a developer release</string>
+    <string name="notice_debug_desc">This is an internal application build that must only be used for testing by developers. Please do not distribute.</string>
+    <string name="notice_beta_title">This is a beta release</string>
+    <string name="notice_beta_desc">This application build may be unstable or lacking certain functions. Please only give private feedback to the developers.</string>
+    <string name="notice_weekly_title">This is a bleeding edge release</string>
+    <string name="notice_weekly_desc">This application build has been built automatically and has not been tested.</string>
+    <string name="notice_confirmation">GOT IT</string>
+    <string name="notice_playful_dog_content_desc">Playful dog illustration</string>
+    <string name="open_source_licenses"><u>Open source licenses</u></string>
+    <string name="title_activity_debug">Debug</string>
 
 </resources>

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
-  <shortcut
-    android:enabled="true"
-    android:icon="@drawable/ic_shortcut_record"
-    android:shortcutDisabledMessage="@string/shortcut_record_disabled_message"
-    android:shortcutId="record"
-    android:shortcutLongLabel="@string/shortcut_record_desc"
-    android:shortcutShortLabel="@string/shortcut_record_title">
-    <intent
-      android:action="android.intent.action.VIEW"
-      android:targetClass="com.zeevox.recorder.RecordingActivity"
-      android:targetPackage="com.zeevox.recorder" />
-    <categories android:name="android.shortcut.recorder" />
-  </shortcut>
-  <shortcut
-    android:enabled="true"
-    android:icon="@drawable/ic_shortcut_settings"
-    android:shortcutDisabledMessage="@string/shortcut_settings_disabled_message"
-    android:shortcutId="settings"
-    android:shortcutLongLabel="@string/shortcut_settings_desc"
-    android:shortcutShortLabel="@string/shortcut_settings_title">
-    <intent
-      android:action="android.intent.action.VIEW"
-      android:targetClass="com.zeevox.recorder.SettingsActivity"
-      android:targetPackage="com.zeevox.recorder" />
-    <categories android:name="android.shortcut.settings" />
-  </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_record"
+        android:shortcutDisabledMessage="@string/shortcut_record_disabled_message"
+        android:shortcutId="record"
+        android:shortcutLongLabel="@string/shortcut_record_desc"
+        android:shortcutShortLabel="@string/shortcut_record_title">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.zeevox.recorder.RecordingActivity"
+            android:targetPackage="com.zeevox.recorder" />
+        <categories android:name="android.shortcut.recorder" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_settings"
+        android:shortcutDisabledMessage="@string/shortcut_settings_disabled_message"
+        android:shortcutId="settings"
+        android:shortcutLongLabel="@string/shortcut_settings_desc"
+        android:shortcutShortLabel="@string/shortcut_settings_title">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.zeevox.recorder.SettingsActivity"
+            android:targetPackage="com.zeevox.recorder" />
+        <categories android:name="android.shortcut.settings" />
+    </shortcut>
 </shortcuts>

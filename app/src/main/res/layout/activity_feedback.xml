@@ -1,145 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context="com.zeevox.recorder.FeedbackActivity">
-
-  <RelativeLayout
-    android:id="@+id/feedback_root"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    tools:context="com.zeevox.recorder.FeedbackActivity">
 
-    <android.support.design.widget.TextInputLayout
-      android:id="@+id/feedback_issue_input_layout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_margin="16dp">
-
-      <EditText
-        android:id="@+id/feedback_issue_input"
+    <RelativeLayout
+        android:id="@+id/feedback_root"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/feedback_hint_issue_title"
-        android:inputType="textMultiLine" />
+        android:layout_height="wrap_content">
 
-    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/feedback_issue_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
 
-    <android.support.design.widget.TextInputLayout
-      android:id="@+id/feedback_issue_reproduce_input_layout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_below="@+id/feedback_issue_input_layout">
+            <EditText
+                android:id="@+id/feedback_issue_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/feedback_hint_issue_title"
+                android:inputType="textMultiLine" />
 
-      <EditText
-        android:id="@+id/feedback_issue_reproduce_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/feedback_hint_reproduction_steps"
-        android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
 
-    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/feedback_issue_reproduce_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/feedback_issue_input_layout"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp">
 
-    <android.support.design.widget.TextInputLayout
-      android:id="@+id/feedback_expected_result_layout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_below="@+id/feedback_issue_reproduce_input_layout">
+            <EditText
+                android:id="@+id/feedback_issue_reproduce_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/feedback_hint_reproduction_steps"
+                android:inputType="textMultiLine" />
 
-      <EditText
-        android:id="@+id/feedback_expected_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/feedback_hint_expected_result"
-        android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
 
-    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/feedback_expected_result_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/feedback_issue_reproduce_input_layout"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp">
 
-    <android.support.design.widget.TextInputLayout
-      android:id="@+id/feedback_actual_result_layout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_below="@+id/feedback_expected_result_layout">
+            <EditText
+                android:id="@+id/feedback_expected_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/feedback_hint_expected_result"
+                android:inputType="textMultiLine" />
 
-      <EditText
-        android:id="@+id/feedback_actual_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/feedback_hint_actual_result"
-        android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
 
-    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/feedback_actual_result_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/feedback_expected_result_layout"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp">
 
-    <CheckBox
-      android:id="@+id/check_no_duplicate"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_alignParentStart="true"
-      android:layout_below="@id/feedback_actual_result_layout"
-      android:text="@string/feedback_check_no_duplicate_title" />
+            <EditText
+                android:id="@+id/feedback_actual_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/feedback_hint_actual_result"
+                android:inputType="textMultiLine" />
 
-    <CheckBox
-      android:id="@+id/check_latest_version"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_alignParentStart="true"
-      android:layout_below="@id/check_no_duplicate"
-      android:text="@string/feedback_check_latest_version" />
+        </android.support.design.widget.TextInputLayout>
 
-    <CheckBox
-      android:id="@+id/check_generic_title"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_alignParentStart="true"
-      android:layout_below="@id/check_latest_version"
-      android:text="@string/feedback_check_generic_title" />
+        <CheckBox
+            android:id="@+id/check_no_duplicate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/feedback_actual_result_layout"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/feedback_check_no_duplicate_title" />
 
+        <CheckBox
+            android:id="@+id/check_latest_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/check_no_duplicate"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/feedback_check_latest_version" />
 
-    <CheckBox
-      android:id="@+id/check_device_info"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_alignParentStart="true"
-      android:layout_below="@id/check_generic_title"
-      android:text="@string/feedback_check_device_info" />
+        <CheckBox
+            android:id="@+id/check_generic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/check_latest_version"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/feedback_check_generic_title" />
 
 
-    <Button
-      android:id="@+id/feedback_send_button"
-      style="@style/Widget.AppCompat.Button.Colored"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_alignParentEnd="true"
-      android:layout_below="@id/check_device_info"
-      android:text="@string/action_send_feedback" />
+        <CheckBox
+            android:id="@+id/check_device_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/check_generic_title"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/feedback_check_device_info" />
 
-  </RelativeLayout>
+
+        <Button
+            android:id="@+id/feedback_send_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/check_device_info"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/action_send_feedback" />
+
+    </RelativeLayout>
 </ScrollView>
