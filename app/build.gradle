@@ -55,8 +55,8 @@ android {
         abortOnError false
     }
 
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.1"
 
     defaultConfig {
 
@@ -65,7 +65,7 @@ android {
         applicationId "com.zeevox.recorder"
 
         minSdkVersion 23
-        targetSdkVersion 26
+        targetSdkVersion 27
 
         versionCode gitVersionCode()
         versionName gitVersionName()
@@ -131,14 +131,13 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.0.1'
-    compile 'com.android.support:design:26.0.1'
-    //compile 'com.android.support:recyclerview-v7:26.0.1'
+    compile 'com.android.support:appcompat-v7:27.0.1'
+    compile 'com.android.support:design:27.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     /*          Material Dialogs by afollestad          */
     /*  https://github.com/afollestad/material-dialogs  */
-    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
+    compile 'com.afollestad.material-dialogs:core:0.9.5.0'
     //compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
 
     /*               LicensesDialog by PSDev            */
